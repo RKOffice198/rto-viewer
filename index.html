@@ -59,6 +59,32 @@ body {
 
 }
 
+.sheetSelector {
+
+  height: 36px;
+
+  max-width: 105px;
+
+  min-width: 82px;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: #111827;
+
+  padding: 0 6px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  outline: none;
+
+}
+
 
 /* =====================================================
    HEADER
@@ -628,82 +654,51 @@ body {
      HEADER
 =================================================== -->
 
-<div class="header">
+<div class="headerRow">
 
-  <div class="headerRow">
-
-    <div class="title">
-
-      RTO Viewer
-
-    </div>
-
-
-    <div
-      id="counter"
-      class="counter"
-    >
-
-      0 / 0
-
-    </div>
-
-
-    <button
-      id="listButton"
-      class="headerButton"
-      onclick="toggleList()"
-    >
-
-      List
-
-    </button>
-
-
-    <button
-      class="headerButton"
-      onclick="loadData()"
-    >
-
-      ↻
-
-    </button>
-
+  <div class="title">
+    RTO Viewer
   </div>
 
 
-  <!-- SEARCH -->
-
-  <div
-    id="searchContainer"
-    class="searchContainer"
+  <select
+    id="sheetSelector"
+    class="sheetSelector"
+    onchange="changeSheet()"
   >
 
-    <input
-      id="search"
-      type="search"
-      placeholder="Tap here to search..."
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
-      readonly
-      onclick="activateSearch()"
-      oninput="renderList()"
-    >
+    <option value="">
+      Loading...
+    </option>
 
-    <span class="searchIcon">
+  </select>
 
-      🔍
 
-    </span>
-
+  <div
+    id="counter"
+    class="counter"
+  >
+    0 / 0
   </div>
 
+
+  <button
+    id="listButton"
+    class="headerButton"
+    onclick="toggleList()"
+  >
+    List
+  </button>
+
+
+  <button
+    class="headerButton"
+    onclick="loadData()"
+  >
+    ↻
+  </button>
+
 </div>
-
-
-
 <!-- ===================================================
      CONTENT
 =================================================== -->
@@ -896,7 +891,202 @@ function $(id) {
   return document.getElementById(id);
 
 }
+/* =====================================================
+   LOAD sheet
+===================================================== */
 
+function loadSheets() {
+
+  const callbackName =
+    "sheetCallback_" +
+    Date.now();
+
+
+  window[callbackName] =
+    function(data) {
+
+
+      try {
+
+        if (
+          !data ||
+          !data.success
+        ) {
+
+          showError(
+            data &&
+            data.error
+              ? data.error
+              : "Unable to load sheets"
+          );
+
+          return;
+
+        }
+
+
+        const selector =
+          document.getElementById(
+            "sheetSelector"
+          );
+
+
+        selector.innerHTML =
+          "";
+
+
+        data.sheets.forEach(
+          function(sheetName) {
+
+
+            const option =
+              document.createElement(
+                "option"
+              );
+
+
+            option.value =
+              sheetName;
+
+
+            option.textContent =
+              sheetName;
+
+
+            selector.appendChild(
+              option
+            );
+
+          }
+        );
+
+
+        /*
+          Automatically select
+          Meesho if it exists.
+        */
+
+        const meesho =
+          data.sheets.find(
+            function(name) {
+
+              return name
+                .toLowerCase() ===
+                "meesho";
+
+            }
+          );
+
+
+        if (meesho) {
+
+          selector.value =
+            meesho;
+
+        }
+
+
+        loadData();
+
+      }
+
+      finally {
+
+        delete window[
+          callbackName
+        ];
+
+        if (
+          script.parentNode
+        ) {
+
+          script.parentNode
+            .removeChild(
+              script
+            );
+
+        }
+
+      }
+
+    };
+
+
+  const script =
+    document.createElement(
+      "script"
+    );
+
+
+  script.src =
+    API_URL +
+    "?action=sheets" +
+    "&callback=" +
+    encodeURIComponent(
+      callbackName
+    ) +
+    "&t=" +
+    Date.now();
+
+
+  script.onerror =
+    function() {
+
+      showError(
+        "Unable to load sheet list."
+      );
+
+    };
+
+
+  document
+    .body
+    .appendChild(
+      script
+    );
+
+}
+
+  function changeSheet() {
+
+  const selector =
+    document.getElementById(
+      "sheetSelector"
+    );
+
+
+  const selected =
+    selector.value;
+
+
+  if (!selected) {
+    return;
+  }
+
+
+  currentIndex = 0;
+
+
+  document
+    .getElementById(
+      "loading"
+    )
+    .style.display =
+    "block";
+
+
+  document
+    .getElementById(
+      "viewer"
+    )
+    .style.display =
+    "none";
+
+
+  loadData();
+
+}
+  
 
 
 /* =====================================================
@@ -905,34 +1095,40 @@ function $(id) {
 
 function loadData() {
 
+  const sheet =
+    document
+      .getElementById(
+        "sheetSelector"
+      )
+      .value;
+
 
   if (
     !API_URL ||
     API_URL.includes("PASTE_YOUR")
   ) {
 
-    $("loading").innerHTML =
-      "Please add your Apps Script URL<br><br>" +
-      "<small>Edit API_URL in index.html</small>";
+    document
+      .getElementById("loading")
+      .innerHTML =
+        "Please add your Apps Script URL";
 
     return;
 
   }
 
 
-  $("loading").style.display = "block";
+  document
+    .getElementById("loading")
+    .style.display = "block";
 
-  $("loading").innerHTML =
-    "Loading...";
 
-
-  /*
-     JSONP is used here.
-
-     This avoids the normal browser CORS
-     problem between GitHub Pages and
-     Google Apps Script.
-  */
+  document
+    .getElementById("loading")
+    .innerHTML =
+      "Loading " +
+      escapeHtml(sheet) +
+      "...";
 
 
   const callbackName =
@@ -946,12 +1142,16 @@ function loadData() {
 
       try {
 
-        if (!data || !data.success) {
+        if (
+          !data ||
+          !data.success
+        ) {
 
           showError(
-            data && data.error
+            data &&
+            data.error
               ? data.error
-              : "Unknown server error"
+              : "Server error"
           );
 
           return;
@@ -963,14 +1163,23 @@ function loadData() {
           data.rows || [];
 
 
-        currentIndex = 0;
+        currentIndex =
+          0;
 
 
-        $("loading").style.display =
+        document
+          .getElementById(
+            "loading"
+          )
+          .style.display =
           "none";
 
 
-        $("viewer").style.display =
+        document
+          .getElementById(
+            "viewer"
+          )
+          .style.display =
           rows.length
             ? "block"
             : "none";
@@ -983,13 +1192,19 @@ function loadData() {
 
       finally {
 
-        delete window[callbackName];
+        delete window[
+          callbackName
+        ];
 
-        if (script.parentNode) {
 
-          script.parentNode.removeChild(
-            script
-          );
+        if (
+          script.parentNode
+        ) {
+
+          script.parentNode
+            .removeChild(
+              script
+            );
 
         }
 
@@ -999,12 +1214,19 @@ function loadData() {
 
 
   const script =
-    document.createElement("script");
+    document.createElement(
+      "script"
+    );
 
 
   script.src =
     API_URL +
-    "?callback=" +
+    "?action=data" +
+    "&sheet=" +
+    encodeURIComponent(
+      sheet
+    ) +
+    "&callback=" +
     encodeURIComponent(
       callbackName
     ) +
@@ -1016,28 +1238,19 @@ function loadData() {
     function() {
 
       showError(
-        "Unable to connect to Google Apps Script."
+        "Unable to connect to Apps Script."
       );
-
-      delete window[callbackName];
-
-      if (script.parentNode) {
-
-        script.parentNode.removeChild(
-          script
-        );
-
-      }
 
     };
 
 
-  document.body.appendChild(script);
+  document
+    .body
+    .appendChild(
+      script
+    );
 
 }
-
-
-
 /* =====================================================
    ERROR
 ===================================================== */
@@ -1750,8 +1963,7 @@ function escapeHtml(text) {
    START
 ===================================================== */
 
-loadData();
-
+loadSheets();
 </script>
 
 </body>
