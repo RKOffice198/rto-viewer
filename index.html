@@ -21,12 +21,16 @@
 <style>
 
 /* =====================================================
-   BASIC
+   RESET
 ===================================================== */
 
 * {
+
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
 }
 
 
@@ -46,42 +50,19 @@ body {
     Helvetica,
     sans-serif;
 
-  background: #f2f3f5;
+  background:
+    #f2f3f5;
 
-  color: #111827;
+  color:
+    #111827;
 
 }
 
 
 body {
 
-  overscroll-behavior: none;
-
-}
-
-.sheetSelector {
-
-  height: 36px;
-
-  max-width: 105px;
-
-  min-width: 82px;
-
-  border: 0;
-
-  border-radius: 8px;
-
-  background: white;
-
-  color: #111827;
-
-  padding: 0 6px;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  outline: none;
+  overscroll-behavior:
+    none;
 
 }
 
@@ -98,7 +79,10 @@ body {
 
   z-index: 100;
 
-  background: #111827;
+  width: 100%;
+
+  background:
+    #111827;
 
   color: white;
 
@@ -108,7 +92,8 @@ body {
     8px;
 
   box-shadow:
-    0 2px 8px rgba(0,0,0,.25);
+    0 2px 8px
+    rgba(0,0,0,.25);
 
 }
 
@@ -120,6 +105,8 @@ body {
   align-items: center;
 
   gap: 6px;
+
+  width: 100%;
 
   min-height: 42px;
 
@@ -136,6 +123,8 @@ body {
 
   font-weight: 800;
 
+  white-space: nowrap;
+
 }
 
 
@@ -150,32 +139,79 @@ body {
 }
 
 
+/* =====================================================
+   SHEET SELECTOR
+===================================================== */
+
+.sheetSelector {
+
+  height: 36px;
+
+  min-width: 80px;
+
+  max-width: 105px;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background:
+    white;
+
+  color:
+    #111827;
+
+  padding:
+    0 6px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  outline: none;
+
+}
+
+
+/* =====================================================
+   HEADER BUTTONS
+===================================================== */
+
 .headerButton {
 
   border: 0;
 
-  background: #374151;
+  background:
+    #374151;
 
-  color: white;
+  color:
+    white;
 
-  border-radius: 8px;
+  border-radius:
+    8px;
 
-  min-width: 40px;
+  min-width:
+    40px;
 
-  height: 38px;
+  height:
+    38px;
 
-  padding: 0 9px;
+  padding:
+    0 9px;
 
-  font-size: 14px;
+  font-size:
+    14px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
 }
 
 
 .headerButton:active {
 
-  transform: scale(.95);
+  transform:
+    scale(.95);
 
 }
 
@@ -186,78 +222,103 @@ body {
 
 .searchContainer {
 
-  display: none;
+  display:
+    none;
 
-  margin-top: 7px;
+  margin-top:
+    7px;
 
-  position: relative;
+  position:
+    relative;
 
 }
 
 
 .searchContainer.show {
 
-  display: block;
+  display:
+    block;
 
 }
 
 
 #search {
 
-  width: 100%;
+  width:
+    100%;
 
-  height: 42px;
+  height:
+    42px;
 
-  border: 0;
+  border:
+    0;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   padding:
     0 40px
     0 13px;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  outline: none;
+  outline:
+    none;
 
-  background: white;
+  background:
+    white;
+
+  color:
+    #111827;
 
 }
 
 
 .searchIcon {
 
-  position: absolute;
+  position:
+    absolute;
 
-  right: 13px;
+  right:
+    13px;
 
-  top: 9px;
+  top:
+    9px;
 
-  color: #6b7280;
+  color:
+    #6b7280;
 
-  font-size: 20px;
+  font-size:
+    19px;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
 }
 
 
 /* =====================================================
-   MAIN
+   MAIN CONTAINER
 ===================================================== */
 
 .container {
 
-  width: 100%;
+  width:
+    100%;
 
-  max-width: 700px;
+  max-width:
+    600px;
 
-  margin: auto;
+  margin:
+    0 auto;
 
   padding:
-    8px
-    8px
-    calc(10px + env(safe-area-inset-bottom));
+    8px 8px
+    calc(
+      10px +
+      env(safe-area-inset-bottom)
+    );
 
 }
 
@@ -268,63 +329,120 @@ body {
 
 .viewer {
 
-  background: white;
+  width:
+    100%;
 
-  border-radius: 12px;
+  background:
+    white;
 
-  padding: 7px;
+  border-radius:
+    12px;
+
+  padding:
+    7px;
 
   box-shadow:
-    0 2px 9px rgba(0,0,0,.12);
+    0 2px 9px
+    rgba(0,0,0,.12);
 
 }
 
 
+/* =====================================================
+   IMAGE
+===================================================== */
+
 .imageBox {
 
-  width: 100%;
+  width:
+    100%;
 
   height:
     calc(100dvh - 245px);
 
-  min-height: 300px;
+  min-height:
+    300px;
 
-  max-height: 720px;
+  max-height:
+    720px;
 
-  background: #e5e7eb;
+  background:
+    #e5e7eb;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  touch-action: pan-y;
+  touch-action:
+    pan-y;
 
 }
 
 
 .imageBox img {
 
-  display: block;
+  display:
+    block;
 
-  max-width: 100%;
+  max-width:
+    100%;
 
-  max-height: 100%;
+  max-height:
+    100%;
 
-  width: auto;
+  width:
+    auto;
 
-  height: auto;
+  height:
+    auto;
 
-  object-fit: contain;
+  object-fit:
+    contain;
 
-  user-select: none;
+  user-select:
+    none;
 
-  -webkit-user-drag: none;
+  -webkit-user-drag:
+    none;
+
+}
+
+
+.noImage {
+
+  text-align:
+    center;
+
+  color:
+    #6b7280;
+
+  font-weight:
+    800;
+
+}
+
+
+.noImage small {
+
+  display:
+    block;
+
+  margin-top:
+    6px;
+
+  font-weight:
+    400;
 
 }
 
@@ -335,71 +453,96 @@ body {
 
 .info {
 
-  margin-top: 7px;
+  margin-top:
+    7px;
 
-  padding: 9px;
+  padding:
+    9px;
 
   border:
     1px solid #e5e7eb;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
+
+  background:
+    white;
 
 }
 
 
 .model {
 
-  font-size: 18px;
+  font-size:
+    18px;
 
-  line-height: 22px;
+  line-height:
+    22px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  word-break: break-word;
+  word-break:
+    break-word;
 
 }
 
 
 .qty {
 
-  margin-left: 5px;
+  margin-left:
+    5px;
 
-  color: #dc2626;
+  color:
+    #dc2626;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
 }
 
 
 .infoRow {
 
-  display: flex;
+  display:
+    flex;
 
-  gap: 7px;
+  gap:
+    7px;
 
-  margin-top: 5px;
+  margin-top:
+    5px;
 
-  font-size: 14px;
+  font-size:
+    14px;
+
+  line-height:
+    19px;
 
 }
 
 
 .label {
 
-  color: #6b7280;
+  color:
+    #6b7280;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
 }
 
 
 .value {
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  word-break: break-all;
+  word-break:
+    break-all;
 
 }
 
@@ -410,59 +553,76 @@ body {
 
 .navigation {
 
-  display: grid;
+  display:
+    grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
-  gap: 7px;
+  gap:
+    7px;
 
-  margin-top: 7px;
+  margin-top:
+    7px;
 
 }
 
 
 .navigation button {
 
-  border: 0;
+  border:
+    0;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
-  background: #111827;
+  background:
+    #111827;
 
-  color: white;
+  color:
+    white;
 
-  min-height: 46px;
+  min-height:
+    46px;
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
 }
 
 
 .navigation button:disabled {
 
-  opacity: .3;
+  opacity:
+    .3;
 
 }
 
 
 .navigation button:active {
 
-  transform: scale(.98);
+  transform:
+    scale(.98);
 
 }
 
 
 .hint {
 
-  text-align: center;
+  text-align:
+    center;
 
-  color: #6b7280;
+  color:
+    #6b7280;
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  margin-top: 5px;
+  margin-top:
+    5px;
 
 }
 
@@ -473,108 +633,142 @@ body {
 
 .list {
 
-  display: none;
+  display:
+    none;
 
 }
 
 
 .list.show {
 
-  display: block;
+  display:
+    block;
 
 }
 
 
 .listItem {
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 9px;
+  gap:
+    9px;
 
-  background: white;
+  background:
+    white;
 
-  padding: 8px;
+  padding:
+    8px;
 
-  margin-bottom: 7px;
+  margin-bottom:
+    7px;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
-  min-height: 78px;
+  min-height:
+    78px;
 
   box-shadow:
-    0 1px 5px rgba(0,0,0,.10);
+    0 1px 5px
+    rgba(0,0,0,.10);
+
+  cursor:
+    pointer;
 
 }
 
 
 .thumbnail {
 
-  width: 58px;
+  width:
+    58px;
 
-  height: 68px;
+  height:
+    68px;
 
-  flex: 0 0 58px;
+  flex:
+    0 0 58px;
 
-  border-radius: 7px;
+  border-radius:
+    7px;
 
-  background: #e5e7eb;
+  background:
+    #e5e7eb;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
 }
 
 
 .thumbnail img {
 
-  width: 100%;
+  width:
+    100%;
 
-  height: 100%;
+  height:
+    100%;
 
-  object-fit: contain;
+  object-fit:
+    contain;
 
 }
 
 
 .listInfo {
 
-  min-width: 0;
+  min-width:
+    0;
 
-  flex: 1;
+  flex:
+    1;
 
 }
 
 
 .listNumber {
 
-  color: #2563eb;
+  color:
+    #2563eb;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
 }
 
 
 .listModel {
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  line-height: 19px;
+  line-height:
+    19px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  word-break: break-word;
+  word-break:
+    break-word;
 
 }
 
 
 .listDetails {
 
-  margin-top: 4px;
+  margin-top:
+    4px;
 
-  color: #4b5563;
+  color:
+    #4b5563;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
 }
 
@@ -585,11 +779,22 @@ body {
 
 .loading {
 
-  padding: 60px 20px;
+  padding:
+    60px 20px;
 
-  text-align: center;
+  text-align:
+    center;
 
-  font-weight: 800;
+  font-weight:
+    800;
+
+}
+
+
+.error {
+
+  color:
+    #dc2626;
 
 }
 
@@ -598,11 +803,12 @@ body {
    DESKTOP
 ===================================================== */
 
-@media (min-width: 700px) {
+@media (min-width:700px) {
 
   .container {
 
-    max-width: 700px;
+    max-width:
+      600px;
 
   }
 
@@ -610,33 +816,113 @@ body {
 
 
 /* =====================================================
-   SMALL PHONE
+   SMALL MOBILE
 ===================================================== */
 
-@media (max-width: 390px) {
+@media (max-width:420px) {
 
   .title {
 
-    font-size: 15px;
+    font-size:
+      15px;
 
   }
+
 
   .counter {
 
-    font-size: 12px;
+    font-size:
+      12px;
 
   }
+
+
+  .sheetSelector {
+
+    min-width:
+      75px;
+
+    max-width:
+      90px;
+
+    font-size:
+      12px;
+
+  }
+
+
+  .headerButton {
+
+    min-width:
+      38px;
+
+    padding:
+      0 8px;
+
+  }
+
 
   .imageBox {
 
     height:
       calc(100dvh - 230px);
 
+    min-height:
+      300px;
+
   }
+
 
   .model {
 
-    font-size: 17px;
+    font-size:
+      17px;
+
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width:350px) {
+
+  .title {
+
+    font-size:
+      14px;
+
+  }
+
+
+  .sheetSelector {
+
+    min-width:
+      68px;
+
+    max-width:
+      78px;
+
+  }
+
+
+  .counter {
+
+    font-size:
+      11px;
+
+  }
+
+
+  .headerButton {
+
+    min-width:
+      35px;
+
+    padding:
+      0 6px;
 
   }
 
@@ -654,57 +940,119 @@ body {
      HEADER
 =================================================== -->
 
-<div class="headerRow">
+<div class="header">
 
-  <div class="title">
-    RTO Viewer
+
+  <div class="headerRow">
+
+
+    <div class="title">
+
+      RTO Viewer
+
+    </div>
+
+
+    <!-- SHEET SELECTOR -->
+
+    <select
+      id="sheetSelector"
+      class="sheetSelector"
+      onchange="changeSheet()"
+    >
+
+      <option value="">
+        Loading...
+      </option>
+
+    </select>
+
+
+    <!-- COUNTER -->
+
+    <div
+      id="counter"
+      class="counter"
+    >
+
+      0 / 0
+
+    </div>
+
+
+    <!-- LIST BUTTON -->
+
+    <button
+      id="listButton"
+      class="headerButton"
+      onclick="toggleList()"
+    >
+
+      List
+
+    </button>
+
+
+    <!-- REFRESH -->
+
+    <button
+      class="headerButton"
+      onclick="loadData()"
+    >
+
+      ↻
+
+    </button>
+
+
   </div>
 
 
-  <select
-    id="sheetSelector"
-    class="sheetSelector"
-    onchange="changeSheet()"
-  >
-
-    <option value="">
-      Loading...
-    </option>
-
-  </select>
-
+  <!-- SEARCH -->
 
   <div
-    id="counter"
-    class="counter"
+    id="searchContainer"
+    class="searchContainer"
   >
-    0 / 0
+
+    <input
+      id="search"
+      type="search"
+      placeholder="Tap here to search..."
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      readonly
+      onclick="activateSearch()"
+      oninput="renderList()"
+    >
+
+
+    <span
+      class="searchIcon"
+    >
+
+      🔍
+
+    </span>
+
+
   </div>
 
 
-  <button
-    id="listButton"
-    class="headerButton"
-    onclick="toggleList()"
-  >
-    List
-  </button>
-
-
-  <button
-    class="headerButton"
-    onclick="loadData()"
-  >
-    ↻
-  </button>
-
 </div>
+
+
+
 <!-- ===================================================
-     CONTENT
+     MAIN
 =================================================== -->
 
 <div class="container">
 
+
+  <!-- LOADING -->
 
   <div
     id="loading"
@@ -716,7 +1064,10 @@ body {
   </div>
 
 
-  <!-- VIEWER -->
+
+  <!-- =================================================
+       VIEWER
+  ================================================== -->
 
   <div
     id="viewer"
@@ -724,6 +1075,8 @@ body {
     style="display:none"
   >
 
+
+    <!-- IMAGE -->
 
     <div
       id="imageBox"
@@ -737,6 +1090,9 @@ body {
 
     </div>
 
+
+
+    <!-- INFORMATION -->
 
     <div class="info">
 
@@ -794,6 +1150,9 @@ body {
     </div>
 
 
+
+    <!-- NAVIGATION -->
+
     <div class="navigation">
 
 
@@ -831,7 +1190,9 @@ body {
 
 
 
-  <!-- LIST -->
+  <!-- =================================================
+       LIST
+  ================================================== -->
 
   <div
     id="list"
@@ -846,29 +1207,21 @@ body {
 <script>
 
 
-/* =====================================================
-   IMPORTANT
-===================================================== */
-
-
-/*
-   PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE.
-
-   Example:
-
-   const API_URL =
-   "https://script.google.com/macros/s/XXXXXXXX/exec";
-*/
-
+// =====================================================
+// APPS SCRIPT URL
+// =====================================================
+//
+// IMPORTANT:
+// Put your deployed Apps Script URL here.
+// =====================================================
 
 const API_URL =
   "https://script.google.com/macros/s/AKfycbwjVrkB6YYbmmyOwsM2u3HdlUgOaUZAREz-QxqRCTDUnMXAgkLfu5TKkEsdbJVPCCc7MA/exec";
 
 
-
-/* =====================================================
-   VARIABLES
-===================================================== */
+// =====================================================
+// VARIABLES
+// =====================================================
 
 let rows = [];
 
@@ -881,21 +1234,23 @@ let touchStartX = 0;
 let touchStartY = 0;
 
 
-
-/* =====================================================
-   ELEMENT SHORTCUT
-===================================================== */
+// =====================================================
+// ELEMENT SHORTCUT
+// =====================================================
 
 function $(id) {
 
   return document.getElementById(id);
 
 }
-/* =====================================================
-   LOAD sheet
-===================================================== */
+
+
+// =====================================================
+// LOAD SHEETS
+// =====================================================
 
 function loadSheets() {
+
 
   const callbackName =
     "sheetCallback_" +
@@ -907,6 +1262,7 @@ function loadSheets() {
 
 
       try {
+
 
         if (
           !data ||
@@ -926,14 +1282,30 @@ function loadSheets() {
 
 
         const selector =
-          document.getElementById(
-            "sheetSelector"
-          );
+          $("sheetSelector");
 
 
         selector.innerHTML =
           "";
 
+
+        if (
+          !data.sheets ||
+          !data.sheets.length
+        ) {
+
+          showError(
+            "No Google Sheets found."
+          );
+
+          return;
+
+        }
+
+
+        // ---------------------------------------------
+        // ADD ALL SHEETS
+        // ---------------------------------------------
 
         data.sheets.forEach(
           function(sheetName) {
@@ -961,42 +1333,104 @@ function loadSheets() {
         );
 
 
-        /*
-          Automatically select
-          Meesho if it exists.
-        */
+        // ---------------------------------------------
+        // REMEMBER LAST SHEET
+        // ---------------------------------------------
 
-        const meesho =
-          data.sheets.find(
-            function(name) {
-
-              return name
-                .toLowerCase() ===
-                "meesho";
-
-            }
-          );
+        let savedSheet = null;
 
 
-        if (meesho) {
+        try {
 
-          selector.value =
-            meesho;
+          savedSheet =
+            localStorage.getItem(
+              "RTO_SELECTED_SHEET"
+            );
+
+        } catch (error) {
+
+          savedSheet = null;
 
         }
 
 
+        let selectedSheet =
+          "";
+
+
+        // First try saved sheet
+        if (
+          savedSheet &&
+          data.sheets.includes(
+            savedSheet
+          )
+        ) {
+
+          selectedSheet =
+            savedSheet;
+
+        }
+
+
+        // Otherwise prefer Meesho
+        if (
+          !selectedSheet
+        ) {
+
+          const meesho =
+            data.sheets.find(
+              function(name) {
+
+                return (
+                  name
+                    .toLowerCase() ===
+                  "meesho"
+                );
+
+              }
+            );
+
+
+          if (meesho) {
+
+            selectedSheet =
+              meesho;
+
+          }
+
+        }
+
+
+        // Otherwise first sheet
+        if (
+          !selectedSheet
+        ) {
+
+          selectedSheet =
+            data.sheets[0];
+
+        }
+
+
+        selector.value =
+          selectedSheet;
+
+
         loadData();
+
 
       }
 
       finally {
 
+
         delete window[
           callbackName
         ];
 
+
         if (
+          script &&
           script.parentNode
         ) {
 
@@ -1033,7 +1467,7 @@ function loadSheets() {
     function() {
 
       showError(
-        "Unable to load sheet list."
+        "Unable to connect to Google Apps Script."
       );
 
     };
@@ -1047,12 +1481,16 @@ function loadSheets() {
 
 }
 
-  function changeSheet() {
+
+// =====================================================
+// CHANGE SHEET
+// =====================================================
+
+function changeSheet() {
+
 
   const selector =
-    document.getElementById(
-      "sheetSelector"
-    );
+    $("sheetSelector");
 
 
   const selected =
@@ -1060,75 +1498,121 @@ function loadSheets() {
 
 
   if (!selected) {
+
     return;
+
   }
 
 
-  currentIndex = 0;
+  // Save selection
+  try {
+
+    localStorage.setItem(
+      "RTO_SELECTED_SHEET",
+      selected
+    );
+
+  } catch (error) {}
 
 
-  document
-    .getElementById(
-      "loading"
-    )
-    .style.display =
-    "block";
+  currentIndex =
+    0;
 
 
-  document
-    .getElementById(
-      "viewer"
-    )
-    .style.display =
-    "none";
+  // If currently in list,
+  // close list and return viewer.
+
+  if (listMode) {
+
+    listMode =
+      false;
+
+
+    $("list")
+      .classList
+      .remove("show");
+
+
+    $("searchContainer")
+      .classList
+      .remove("show");
+
+
+    $("viewer")
+      .style.display =
+      "block";
+
+
+    $("listButton")
+      .textContent =
+      "List";
+
+  }
 
 
   loadData();
 
 }
-  
 
 
-/* =====================================================
-   LOAD DATA
-===================================================== */
+// =====================================================
+// LOAD DATA
+// =====================================================
 
 function loadData() {
 
+
+  const selector =
+    $("sheetSelector");
+
+
   const sheet =
-    document
-      .getElementById(
-        "sheetSelector"
-      )
-      .value;
+    selector.value;
 
 
   if (
     !API_URL ||
-    API_URL.includes("PASTE_YOUR")
+    API_URL.includes(
+      "PASTE_YOUR"
+    )
   ) {
 
-    document
-      .getElementById("loading")
-      .innerHTML =
-        "Please add your Apps Script URL";
+    showError(
+      "Please enter your Apps Script URL."
+    );
 
     return;
 
   }
 
 
-  document
-    .getElementById("loading")
-    .style.display = "block";
+  if (!sheet) {
+
+    return;
+
+  }
 
 
-  document
-    .getElementById("loading")
-    .innerHTML =
-      "Loading " +
-      escapeHtml(sheet) +
-      "...";
+  $("loading")
+    .style.display =
+    "block";
+
+
+  $("loading")
+    .classList
+    .remove("error");
+
+
+  $("loading")
+    .textContent =
+    "Loading " +
+    sheet +
+    "...";
+
+
+  $("viewer")
+    .style.display =
+    "none";
 
 
   const callbackName =
@@ -1141,6 +1625,7 @@ function loadData() {
 
 
       try {
+
 
         if (
           !data ||
@@ -1167,22 +1652,35 @@ function loadData() {
           0;
 
 
-        document
-          .getElementById(
-            "loading"
-          )
+        $("loading")
           .style.display =
           "none";
 
 
-        document
-          .getElementById(
-            "viewer"
-          )
+        $("viewer")
           .style.display =
           rows.length
             ? "block"
             : "none";
+
+
+        if (
+          !rows.length
+        ) {
+
+          $("loading")
+            .style.display =
+            "block";
+
+
+          $("loading")
+            .textContent =
+            "No RTO records found in " +
+            sheet;
+
+          return;
+
+        }
 
 
         render();
@@ -1192,12 +1690,14 @@ function loadData() {
 
       finally {
 
+
         delete window[
           callbackName
         ];
 
 
         if (
+          script &&
           script.parentNode
         ) {
 
@@ -1251,35 +1751,50 @@ function loadData() {
     );
 
 }
-/* =====================================================
-   ERROR
-===================================================== */
 
-function showError(message) {
 
-  $("loading").style.display =
+// =====================================================
+// ERROR
+// =====================================================
+
+function showError(
+  message
+) {
+
+
+  $("loading")
+    .style.display =
     "block";
 
-  $("loading").innerHTML =
-    "<span style='color:#dc2626'>" +
+
+  $("loading")
+    .classList
+    .add("error");
+
+
+  $("loading")
+    .innerHTML =
     "Error: " +
-    escapeHtml(message) +
-    "</span>";
+    escapeHtml(
+      message
+    );
 
 }
 
 
-
-/* =====================================================
-   MAIN VIEW
-===================================================== */
+// =====================================================
+// RENDER MAIN VIEW
+// =====================================================
 
 function render() {
 
 
-  if (!rows.length) {
+  if (
+    !rows.length
+  ) {
 
-    $("counter").textContent =
+    $("counter")
+      .textContent =
       "0 / 0";
 
     return;
@@ -1288,29 +1803,40 @@ function render() {
 
 
   const row =
-    rows[currentIndex];
+    rows[
+      currentIndex
+    ];
 
 
-  $("counter").textContent =
-    (currentIndex + 1) +
+  $("counter")
+    .textContent =
+    (
+      currentIndex + 1
+    ) +
     " / " +
     rows.length;
 
 
-  $("model").textContent =
+  $("model")
+    .textContent =
     row.model || "";
 
 
-  $("qty").textContent =
+  $("qty")
+    .textContent =
     "Qty: " +
-    (row.qty || 1);
+    (
+      row.qty || 1
+    );
 
 
-  $("rack").textContent =
+  $("rack")
+    .textContent =
     row.rack || "-";
 
 
-  $("imageCode").textContent =
+  $("imageCode")
+    .textContent =
     row.imageCode || "-";
 
 
@@ -1318,7 +1844,18 @@ function render() {
     $("mainImage");
 
 
-  if (row.imageUrl) {
+  const imageBox =
+    $("imageBox");
+
+
+  // -------------------------------------------------
+  // IMAGE FOUND
+  // -------------------------------------------------
+
+  if (
+    row.imageUrl
+  ) {
+
 
     image.style.display =
       "block";
@@ -1333,33 +1870,95 @@ function render() {
       row.model ||
       "Image";
 
+
+    const noImage =
+      imageBox.querySelector(
+        ".noImage"
+      );
+
+
+    if (noImage) {
+
+      noImage.remove();
+
+    }
+
   }
 
 
-  $("previous").disabled =
+  // -------------------------------------------------
+  // IMAGE NOT FOUND
+  // -------------------------------------------------
+
+  else {
+
+
+    image.style.display =
+      "none";
+
+
+    if (
+      !imageBox.querySelector(
+        ".noImage"
+      )
+    ) {
+
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+
+      div.className =
+        "noImage";
+
+
+      div.innerHTML =
+        "Image not found" +
+        "<small>" +
+        escapeHtml(
+          row.imageCode ||
+          ""
+        ) +
+        "</small>";
+
+
+      imageBox.appendChild(
+        div
+      );
+
+    }
+
+  }
+
+
+  $("previous")
+    .disabled =
     currentIndex <= 0;
 
 
-  $("next").disabled =
+  $("next")
+    .disabled =
     currentIndex >=
     rows.length - 1;
 
 
-  /*
-     PRELOAD NEXT + PREVIOUS
-  */
-
+  // Preload previous
   preload(
     currentIndex - 1
   );
 
 
+  // Preload next
   preload(
     currentIndex + 1
   );
 
 
-  if (listMode) {
+  if (
+    listMode
+  ) {
 
     renderList();
 
@@ -1368,12 +1967,13 @@ function render() {
 }
 
 
+// =====================================================
+// PREVIOUS / NEXT
+// =====================================================
 
-/* =====================================================
-   NEXT / PREVIOUS
-===================================================== */
-
-function move(direction) {
+function move(
+  direction
+) {
 
 
   const newIndex =
@@ -1383,7 +1983,8 @@ function move(direction) {
 
   if (
     newIndex < 0 ||
-    newIndex >= rows.length
+    newIndex >=
+    rows.length
   ) {
 
     return;
@@ -1400,10 +2001,9 @@ function move(direction) {
 }
 
 
-
-/* =====================================================
-   LIST MODE
-===================================================== */
+// =====================================================
+// LIST VIEW
+// =====================================================
 
 function toggleList() {
 
@@ -1412,7 +2012,9 @@ function toggleList() {
     !listMode;
 
 
-  if (listMode) {
+  if (
+    listMode
+  ) {
 
 
     $("viewer")
@@ -1430,27 +2032,21 @@ function toggleList() {
       .add("show");
 
 
-    /*
-       IMPORTANT:
+    // IMPORTANT:
+    // Do not open keyboard automatically.
 
-       Search starts READONLY.
-
-       Therefore Android/iPhone keyboard
-       DOES NOT automatically open.
-    */
-
-    $("search").readOnly =
+    $("search")
+      .readOnly =
       true;
 
 
-    $("search").blur();
-
-
-    $("search").value =
+    $("search")
+      .value =
       "";
 
 
-    renderList();
+    $("search")
+      .blur();
 
 
     $("listButton")
@@ -1458,7 +2054,10 @@ function toggleList() {
       "Viewer";
 
 
+    renderList();
+
   }
+
 
   else {
 
@@ -1487,6 +2086,11 @@ function toggleList() {
       .blur();
 
 
+    $("search")
+      .value =
+      "";
+
+
     $("listButton")
       .textContent =
       "List";
@@ -1499,10 +2103,9 @@ function toggleList() {
 }
 
 
-
-/* =====================================================
-   SEARCH
-===================================================== */
+// =====================================================
+// SEARCH
+// =====================================================
 
 function activateSearch() {
 
@@ -1513,7 +2116,7 @@ function activateSearch() {
 
   /*
      Keyboard opens ONLY
-     after the user taps search.
+     after tapping Search.
   */
 
 
@@ -1533,10 +2136,9 @@ function activateSearch() {
 }
 
 
-
-/* =====================================================
-   RENDER LIST
-===================================================== */
+// =====================================================
+// RENDER LIST
+// =====================================================
 
 function renderList() {
 
@@ -1557,7 +2159,10 @@ function renderList() {
 
 
   rows.forEach(
-    function(row, index) {
+    function(
+      row,
+      index
+    ) {
 
 
       const searchableText =
@@ -1653,6 +2258,10 @@ function renderList() {
         };
 
 
+      // ------------------------------------------------
+      // THUMBNAIL
+      // ------------------------------------------------
+
       const thumbnail =
         document.createElement(
           "div"
@@ -1663,7 +2272,9 @@ function renderList() {
         "thumbnail";
 
 
-      if (row.imageUrl) {
+      if (
+        row.imageUrl
+      ) {
 
 
         const img =
@@ -1680,12 +2291,21 @@ function renderList() {
           row.imageUrl;
 
 
+        img.alt =
+          row.imageCode ||
+          "";
+
+
         thumbnail.appendChild(
           img
         );
 
       }
 
+
+      // ------------------------------------------------
+      // INFO
+      // ------------------------------------------------
 
       const info =
         document.createElement(
@@ -1703,7 +2323,9 @@ function renderList() {
 
           "<span class='listNumber'>" +
 
-            (index + 1) +
+            (
+              index + 1
+            ) +
 
           "</span> " +
 
@@ -1717,12 +2339,14 @@ function renderList() {
 
         "</div>" +
 
+
         "<div class='listDetails'>" +
 
           "Rack: <b>" +
 
           escapeHtml(
-            row.rack || "-"
+            row.rack ||
+            "-"
           ) +
 
           "</b>" +
@@ -1730,7 +2354,8 @@ function renderList() {
           " &nbsp; | &nbsp; Image: <b>" +
 
           escapeHtml(
-            row.imageCode || "-"
+            row.imageCode ||
+            "-"
           ) +
 
           "</b>" +
@@ -1753,23 +2378,24 @@ function renderList() {
       );
 
     }
-
   );
 
 }
 
 
+// =====================================================
+// PRELOAD IMAGE
+// =====================================================
 
-/* =====================================================
-   PRELOAD
-===================================================== */
-
-function preload(index) {
+function preload(
+  index
+) {
 
 
   if (
     index < 0 ||
-    index >= rows.length
+    index >=
+    rows.length
   ) {
 
     return;
@@ -1796,20 +2422,16 @@ function preload(index) {
 }
 
 
-
-/* =====================================================
-   KEYBOARD
-===================================================== */
+// =====================================================
+// KEYBOARD ARROWS
+// =====================================================
 
 document.addEventListener(
   "keydown",
   function(event) {
 
 
-    /*
-       Don't use arrow navigation
-       while typing in search.
-    */
+    // Don't navigate while searching
 
     if (
       document.activeElement ===
@@ -1844,90 +2466,91 @@ document.addEventListener(
 );
 
 
-
-/* =====================================================
-   MOBILE SWIPE
-===================================================== */
-
-$("imageBox")
-.addEventListener(
-  "touchstart",
-  function(event) {
-
-
-    const touch =
-      event.changedTouches[0];
-
-
-    touchStartX =
-      touch.clientX;
-
-
-    touchStartY =
-      touch.clientY;
-
-  },
-  {
-    passive: true
-  }
-);
-
-
+// =====================================================
+// MOBILE SWIPE
+// =====================================================
 
 $("imageBox")
-.addEventListener(
-  "touchend",
-  function(event) {
+  .addEventListener(
+    "touchstart",
+    function(event) {
 
 
-    const touch =
-      event.changedTouches[0];
+      const touch =
+        event.changedTouches[0];
 
 
-    const dx =
-      touch.clientX -
-      touchStartX;
+      touchStartX =
+        touch.clientX;
 
 
-    const dy =
-      touch.clientY -
-      touchStartY;
+      touchStartY =
+        touch.clientY;
 
-
-    if (
-      Math.abs(dx) > 55 &&
-      Math.abs(dx) >
-      Math.abs(dy)
-    ) {
-
-
-      if (dx < 0) {
-
-        move(1);
-
-      }
-
-      else {
-
-        move(-1);
-
-      }
-
+    },
+    {
+      passive: true
     }
-
-  },
-  {
-    passive: true
-  }
-);
+  );
 
 
+$("imageBox")
+  .addEventListener(
+    "touchend",
+    function(event) {
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
 
-function escapeHtml(text) {
+      const touch =
+        event.changedTouches[0];
+
+
+      const dx =
+        touch.clientX -
+        touchStartX;
+
+
+      const dy =
+        touch.clientY -
+        touchStartY;
+
+
+      if (
+        Math.abs(dx) > 55 &&
+        Math.abs(dx) >
+        Math.abs(dy)
+      ) {
+
+
+        if (
+          dx < 0
+        ) {
+
+          move(1);
+
+        }
+
+        else {
+
+          move(-1);
+
+        }
+
+      }
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+// =====================================================
+// ESCAPE HTML
+// =====================================================
+
+function escapeHtml(
+  text
+) {
 
 
   return String(
@@ -1940,15 +2563,20 @@ function escapeHtml(text) {
 
       return {
 
-        "&": "&amp;",
+        "&":
+          "&amp;",
 
-        "<": "&lt;",
+        "<":
+          "&lt;",
 
-        ">": "&gt;",
+        ">":
+          "&gt;",
 
-        '"': "&quot;",
+        '"':
+          "&quot;",
 
-        "'": "&#39;"
+        "'":
+          "&#39;"
 
       }[character];
 
@@ -1958,12 +2586,12 @@ function escapeHtml(text) {
 }
 
 
-
-/* =====================================================
-   START
-===================================================== */
+// =====================================================
+// START
+// =====================================================
 
 loadSheets();
+
 </script>
 
 </body>
