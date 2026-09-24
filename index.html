@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,
+           initial-scale=1,
+           maximum-scale=1,
+           user-scalable=no,
+           viewport-fit=cover"
+>
+
+<title>RTO Viewer</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+html,
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  width: 100%;
+
+  min-height: 100%;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #f2f3f5;
+
+  color: #111827;
+
+}
+
+
+body {
+
+  overscroll-behavior: none;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  background: #111827;
+
+  color: white;
+
+  padding:
+    calc(7px + env(safe-area-inset-top))
+    8px
+    8px;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
+
+}
+
+
+.headerRow {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-height: 42px;
+
+}
+
+
+.title {
+
+  flex: 1;
+
+  min-width: 0;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+}
+
+
+.counter {
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+}
+
+
+.headerButton {
+
+  border: 0;
+
+  background: #374151;
+
+  color: white;
+
+  border-radius: 8px;
+
+  min-width: 40px;
+
+  height: 38px;
+
+  padding: 0 9px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+}
+
+
+.headerButton:active {
+
+  transform: scale(.95);
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.searchContainer {
+
+  display: none;
+
+  margin-top: 7px;
+
+  position: relative;
+
+}
+
+
+.searchContainer.show {
+
+  display: block;
+
+}
+
+
+#search {
+
+  width: 100%;
+
+  height: 42px;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  padding:
+    0 40px
+    0 13px;
+
+  font-size: 16px;
+
+  outline: none;
+
+  background: white;
+
+}
+
+
+.searchIcon {
+
+  position: absolute;
+
+  right: 13px;
+
+  top: 9px;
+
+  color: #6b7280;
+
+  font-size: 20px;
+
+  pointer-events: none;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: auto;
+
+  padding:
+    8px
+    8px
+    calc(10px + env(safe-area-inset-bottom));
+
+}
+
+
+/* =====================================================
+   VIEWER
+===================================================== */
+
+.viewer {
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 7px;
+
+  box-shadow:
+    0 2px 9px rgba(0,0,0,.12);
+
+}
+
+
+.imageBox {
+
+  width: 100%;
+
+  height:
+    calc(100dvh - 245px);
+
+  min-height: 300px;
+
+  max-height: 720px;
+
+  background: #e5e7eb;
+
+  border-radius: 9px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  touch-action: pan-y;
+
+}
+
+
+.imageBox img {
+
+  display: block;
+
+  max-width: 100%;
+
+  max-height: 100%;
+
+  width: auto;
+
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.info {
+
+  margin-top: 7px;
+
+  padding: 9px;
+
+  border:
+    1px solid #e5e7eb;
+
+  border-radius: 9px;
+
+}
+
+
+.model {
+
+  font-size: 18px;
+
+  line-height: 22px;
+
+  font-weight: 800;
+
+  word-break: break-word;
+
+}
+
+
+.qty {
+
+  margin-left: 5px;
+
+  color: #dc2626;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+}
+
+
+.infoRow {
+
+  display: flex;
+
+  gap: 7px;
+
+  margin-top: 5px;
+
+  font-size: 14px;
+
+}
+
+
+.label {
+
+  color: #6b7280;
+
+  font-weight: 700;
+
+}
+
+
+.value {
+
+  font-weight: 800;
+
+  word-break: break-all;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7px;
+
+  margin-top: 7px;
+
+}
+
+
+.navigation button {
+
+  border: 0;
+
+  border-radius: 9px;
+
+  background: #111827;
+
+  color: white;
+
+  min-height: 46px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+}
+
+
+.navigation button:disabled {
+
+  opacity: .3;
+
+}
+
+
+.navigation button:active {
+
+  transform: scale(.98);
+
+}
+
+
+.hint {
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 11px;
+
+  margin-top: 5px;
+
+}
+
+
+/* =====================================================
+   LIST
+===================================================== */
+
+.list {
+
+  display: none;
+
+}
+
+
+.list.show {
+
+  display: block;
+
+}
+
+
+.listItem {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  background: white;
+
+  padding: 8px;
+
+  margin-bottom: 7px;
+
+  border-radius: 9px;
+
+  min-height: 78px;
+
+  box-shadow:
+    0 1px 5px rgba(0,0,0,.10);
+
+}
+
+
+.thumbnail {
+
+  width: 58px;
+
+  height: 68px;
+
+  flex: 0 0 58px;
+
+  border-radius: 7px;
+
+  background: #e5e7eb;
+
+  overflow: hidden;
+
+}
+
+
+.thumbnail img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+
+.listInfo {
+
+  min-width: 0;
+
+  flex: 1;
+
+}
+
+
+.listNumber {
+
+  color: #2563eb;
+
+  font-weight: 800;
+
+}
+
+
+.listModel {
+
+  font-size: 15px;
+
+  line-height: 19px;
+
+  font-weight: 800;
+
+  word-break: break-word;
+
+}
+
+
+.listDetails {
+
+  margin-top: 4px;
+
+  color: #4b5563;
+
+  font-size: 13px;
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+
+  padding: 60px 20px;
+
+  text-align: center;
+
+  font-weight: 800;
+
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 700px) {
+
+  .container {
+
+    max-width: 700px;
+
+  }
+
+}
+
+
+/* =====================================================
+   SMALL PHONE
+===================================================== */
+
+@media (max-width: 390px) {
+
+  .title {
+
+    font-size: 15px;
+
+  }
+
+  .counter {
+
+    font-size: 12px;
+
+  }
+
+  .imageBox {
+
+    height:
+      calc(100dvh - 230px);
+
+  }
+
+  .model {
+
+    font-size: 17px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===================================================
+     HEADER
+=================================================== -->
+
+<div class="header">
+
+  <div class="headerRow">
+
+    <div class="title">
+
+      RTO Viewer
+
+    </div>
+
+
+    <div
+      id="counter"
+      class="counter"
+    >
+
+      0 / 0
+
+    </div>
+
+
+    <button
+      id="listButton"
+      class="headerButton"
+      onclick="toggleList()"
+    >
+
+      List
+
+    </button>
+
+
+    <button
+      class="headerButton"
+      onclick="loadData()"
+    >
+
+      ↻
+
+    </button>
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div
+    id="searchContainer"
+    class="searchContainer"
+  >
+
+    <input
+      id="search"
+      type="search"
+      placeholder="Tap here to search..."
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      readonly
+      onclick="activateSearch()"
+      oninput="renderList()"
+    >
+
+    <span class="searchIcon">
+
+      🔍
+
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<!-- ===================================================
+     CONTENT
+=================================================== -->
+
+<div class="container">
+
+
+  <div
+    id="loading"
+    class="loading"
+  >
+
+    Loading...
+
+  </div>
+
+
+  <!-- VIEWER -->
+
+  <div
+    id="viewer"
+    class="viewer"
+    style="display:none"
+  >
+
+
+    <div
+      id="imageBox"
+      class="imageBox"
+    >
+
+      <img
+        id="mainImage"
+        alt=""
+      >
+
+    </div>
+
+
+    <div class="info">
+
+
+      <div>
+
+        <span
+          id="model"
+          class="model"
+        ></span>
+
+
+        <span
+          id="qty"
+          class="qty"
+        ></span>
+
+      </div>
+
+
+      <div class="infoRow">
+
+        <span class="label">
+
+          Rack:
+
+        </span>
+
+
+        <span
+          id="rack"
+          class="value"
+        ></span>
+
+      </div>
+
+
+      <div class="infoRow">
+
+        <span class="label">
+
+          Image:
+
+        </span>
+
+
+        <span
+          id="imageCode"
+          class="value"
+        ></span>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="navigation">
+
+
+      <button
+        id="previous"
+        onclick="move(-1)"
+      >
+
+        ← Previous
+
+      </button>
+
+
+      <button
+        id="next"
+        onclick="move(1)"
+      >
+
+        Next →
+
+      </button>
+
+
+    </div>
+
+
+    <div class="hint">
+
+      Swipe left / right
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- LIST -->
+
+  <div
+    id="list"
+    class="list"
+  ></div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   IMPORTANT
+===================================================== */
+
+
+/*
+   PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE.
+
+   Example:
+
+   const API_URL =
+   "https://script.google.com/macros/s/XXXXXXXX/exec";
+*/
+
+
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbwjVrkB6YYbmmyOwsM2u3HdlUgOaUZAREz-QxqRCTDUnMXAgkLfu5TKkEsdbJVPCCc7MA/exec";
+
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let rows = [];
+
+let currentIndex = 0;
+
+let listMode = false;
+
+let touchStartX = 0;
+
+let touchStartY = 0;
+
+
+
+/* =====================================================
+   ELEMENT SHORTCUT
+===================================================== */
+
+function $(id) {
+
+  return document.getElementById(id);
+
+}
+
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
+
+function loadData() {
+
+
+  if (
+    !API_URL ||
+    API_URL.includes("PASTE_YOUR")
+  ) {
+
+    $("loading").innerHTML =
+      "Please add your Apps Script URL<br><br>" +
+      "<small>Edit API_URL in index.html</small>";
+
+    return;
+
+  }
+
+
+  $("loading").style.display = "block";
+
+  $("loading").innerHTML =
+    "Loading...";
+
+
+  /*
+     JSONP is used here.
+
+     This avoids the normal browser CORS
+     problem between GitHub Pages and
+     Google Apps Script.
+  */
+
+
+  const callbackName =
+    "rtoCallback_" +
+    Date.now();
+
+
+  window[callbackName] =
+    function(data) {
+
+
+      try {
+
+        if (!data || !data.success) {
+
+          showError(
+            data && data.error
+              ? data.error
+              : "Unknown server error"
+          );
+
+          return;
+
+        }
+
+
+        rows =
+          data.rows || [];
+
+
+        currentIndex = 0;
+
+
+        $("loading").style.display =
+          "none";
+
+
+        $("viewer").style.display =
+          rows.length
+            ? "block"
+            : "none";
+
+
+        render();
+
+
+      }
+
+      finally {
+
+        delete window[callbackName];
+
+        if (script.parentNode) {
+
+          script.parentNode.removeChild(
+            script
+          );
+
+        }
+
+      }
+
+    };
+
+
+  const script =
+    document.createElement("script");
+
+
+  script.src =
+    API_URL +
+    "?callback=" +
+    encodeURIComponent(
+      callbackName
+    ) +
+    "&t=" +
+    Date.now();
+
+
+  script.onerror =
+    function() {
+
+      showError(
+        "Unable to connect to Google Apps Script."
+      );
+
+      delete window[callbackName];
+
+      if (script.parentNode) {
+
+        script.parentNode.removeChild(
+          script
+        );
+
+      }
+
+    };
+
+
+  document.body.appendChild(script);
+
+}
+
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message) {
+
+  $("loading").style.display =
+    "block";
+
+  $("loading").innerHTML =
+    "<span style='color:#dc2626'>" +
+    "Error: " +
+    escapeHtml(message) +
+    "</span>";
+
+}
+
+
+
+/* =====================================================
+   MAIN VIEW
+===================================================== */
+
+function render() {
+
+
+  if (!rows.length) {
+
+    $("counter").textContent =
+      "0 / 0";
+
+    return;
+
+  }
+
+
+  const row =
+    rows[currentIndex];
+
+
+  $("counter").textContent =
+    (currentIndex + 1) +
+    " / " +
+    rows.length;
+
+
+  $("model").textContent =
+    row.model || "";
+
+
+  $("qty").textContent =
+    "Qty: " +
+    (row.qty || 1);
+
+
+  $("rack").textContent =
+    row.rack || "-";
+
+
+  $("imageCode").textContent =
+    row.imageCode || "-";
+
+
+  const image =
+    $("mainImage");
+
+
+  if (row.imageUrl) {
+
+    image.style.display =
+      "block";
+
+
+    image.src =
+      row.imageUrl;
+
+
+    image.alt =
+      row.imageCode ||
+      row.model ||
+      "Image";
+
+  }
+
+
+  $("previous").disabled =
+    currentIndex <= 0;
+
+
+  $("next").disabled =
+    currentIndex >=
+    rows.length - 1;
+
+
+  /*
+     PRELOAD NEXT + PREVIOUS
+  */
+
+  preload(
+    currentIndex - 1
+  );
+
+
+  preload(
+    currentIndex + 1
+  );
+
+
+  if (listMode) {
+
+    renderList();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   NEXT / PREVIOUS
+===================================================== */
+
+function move(direction) {
+
+
+  const newIndex =
+    currentIndex +
+    direction;
+
+
+  if (
+    newIndex < 0 ||
+    newIndex >= rows.length
+  ) {
+
+    return;
+
+  }
+
+
+  currentIndex =
+    newIndex;
+
+
+  render();
+
+}
+
+
+
+/* =====================================================
+   LIST MODE
+===================================================== */
+
+function toggleList() {
+
+
+  listMode =
+    !listMode;
+
+
+  if (listMode) {
+
+
+    $("viewer")
+      .style.display =
+      "none";
+
+
+    $("list")
+      .classList
+      .add("show");
+
+
+    $("searchContainer")
+      .classList
+      .add("show");
+
+
+    /*
+       IMPORTANT:
+
+       Search starts READONLY.
+
+       Therefore Android/iPhone keyboard
+       DOES NOT automatically open.
+    */
+
+    $("search").readOnly =
+      true;
+
+
+    $("search").blur();
+
+
+    $("search").value =
+      "";
+
+
+    renderList();
+
+
+    $("listButton")
+      .textContent =
+      "Viewer";
+
+
+  }
+
+  else {
+
+
+    $("viewer")
+      .style.display =
+      "block";
+
+
+    $("list")
+      .classList
+      .remove("show");
+
+
+    $("searchContainer")
+      .classList
+      .remove("show");
+
+
+    $("search")
+      .readOnly =
+      true;
+
+
+    $("search")
+      .blur();
+
+
+    $("listButton")
+      .textContent =
+      "List";
+
+
+    render();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function activateSearch() {
+
+
+  const search =
+    $("search");
+
+
+  /*
+     Keyboard opens ONLY
+     after the user taps search.
+  */
+
+
+  search.readOnly =
+    false;
+
+
+  setTimeout(
+    function() {
+
+      search.focus();
+
+    },
+    50
+  );
+
+}
+
+
+
+/* =====================================================
+   RENDER LIST
+===================================================== */
+
+function renderList() {
+
+
+  const list =
+    $("list");
+
+
+  const searchText =
+    $("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  list.innerHTML =
+    "";
+
+
+  rows.forEach(
+    function(row, index) {
+
+
+      const searchableText =
+
+        (
+          row.model +
+          " " +
+          row.rack +
+          " " +
+          row.imageCode +
+          " " +
+          row.productCode
+        )
+        .toLowerCase();
+
+
+      if (
+        searchText &&
+        !searchableText.includes(
+          searchText
+        )
+      ) {
+
+        return;
+
+      }
+
+
+      const item =
+        document.createElement(
+          "div"
+        );
+
+
+      item.className =
+        "listItem";
+
+
+      item.onclick =
+        function() {
+
+
+          currentIndex =
+            index;
+
+
+          listMode =
+            false;
+
+
+          $("viewer")
+            .style.display =
+            "block";
+
+
+          $("list")
+            .classList
+            .remove("show");
+
+
+          $("searchContainer")
+            .classList
+            .remove("show");
+
+
+          $("search")
+            .value =
+            "";
+
+
+          $("search")
+            .readOnly =
+            true;
+
+
+          $("search")
+            .blur();
+
+
+          $("listButton")
+            .textContent =
+            "List";
+
+
+          render();
+
+
+          window.scrollTo(
+            0,
+            0
+          );
+
+        };
+
+
+      const thumbnail =
+        document.createElement(
+          "div"
+        );
+
+
+      thumbnail.className =
+        "thumbnail";
+
+
+      if (row.imageUrl) {
+
+
+        const img =
+          document.createElement(
+            "img"
+          );
+
+
+        img.loading =
+          "lazy";
+
+
+        img.src =
+          row.imageUrl;
+
+
+        thumbnail.appendChild(
+          img
+        );
+
+      }
+
+
+      const info =
+        document.createElement(
+          "div"
+        );
+
+
+      info.className =
+        "listInfo";
+
+
+      info.innerHTML =
+
+        "<div>" +
+
+          "<span class='listNumber'>" +
+
+            (index + 1) +
+
+          "</span> " +
+
+          "<span class='listModel'>" +
+
+            escapeHtml(
+              row.model
+            ) +
+
+          "</span>" +
+
+        "</div>" +
+
+        "<div class='listDetails'>" +
+
+          "Rack: <b>" +
+
+          escapeHtml(
+            row.rack || "-"
+          ) +
+
+          "</b>" +
+
+          " &nbsp; | &nbsp; Image: <b>" +
+
+          escapeHtml(
+            row.imageCode || "-"
+          ) +
+
+          "</b>" +
+
+        "</div>";
+
+
+      item.appendChild(
+        thumbnail
+      );
+
+
+      item.appendChild(
+        info
+      );
+
+
+      list.appendChild(
+        item
+      );
+
+    }
+
+  );
+
+}
+
+
+
+/* =====================================================
+   PRELOAD
+===================================================== */
+
+function preload(index) {
+
+
+  if (
+    index < 0 ||
+    index >= rows.length
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    !rows[index].imageUrl
+  ) {
+
+    return;
+
+  }
+
+
+  const img =
+    new Image();
+
+
+  img.src =
+    rows[index].imageUrl;
+
+}
+
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+
+    /*
+       Don't use arrow navigation
+       while typing in search.
+    */
+
+    if (
+      document.activeElement ===
+      $("search")
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      event.key ===
+      "ArrowLeft"
+    ) {
+
+      move(-1);
+
+    }
+
+
+    if (
+      event.key ===
+      "ArrowRight"
+    ) {
+
+      move(1);
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   MOBILE SWIPE
+===================================================== */
+
+$("imageBox")
+.addEventListener(
+  "touchstart",
+  function(event) {
+
+
+    const touch =
+      event.changedTouches[0];
+
+
+    touchStartX =
+      touch.clientX;
+
+
+    touchStartY =
+      touch.clientY;
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+
+$("imageBox")
+.addEventListener(
+  "touchend",
+  function(event) {
+
+
+    const touch =
+      event.changedTouches[0];
+
+
+    const dx =
+      touch.clientX -
+      touchStartX;
+
+
+    const dy =
+      touch.clientY -
+      touchStartY;
+
+
+    if (
+      Math.abs(dx) > 55 &&
+      Math.abs(dx) >
+      Math.abs(dy)
+    ) {
+
+
+      if (dx < 0) {
+
+        move(1);
+
+      }
+
+      else {
+
+        move(-1);
+
+      }
+
+    }
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(text) {
+
+
+  return String(
+    text || ""
+  )
+  .replace(
+    /[&<>"']/g,
+    function(character) {
+
+
+      return {
+
+        "&": "&amp;",
+
+        "<": "&lt;",
+
+        ">": "&gt;",
+
+        '"': "&quot;",
+
+        "'": "&#39;"
+
+      }[character];
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadData();
+
+</script>
+
+</body>
+
+</html>
