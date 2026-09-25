@@ -710,6 +710,19 @@ body {
 
 }
 
+.listQty {
+
+  display: inline-block;
+
+  margin-left: 6px;
+
+  color: #dc2626;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+}
 
 .list.show {
 
@@ -2060,10 +2073,8 @@ function activateSearch() {
 
 function renderList() {
 
-
   const list =
     $("list");
-
 
   const searchText =
     $("search")
@@ -2071,20 +2082,13 @@ function renderList() {
       .trim()
       .toLowerCase();
 
-
-  list.innerHTML =
-    "";
+  list.innerHTML = "";
 
 
   rows.forEach(
-    function(
-      row,
-      index
-    ) {
-
+    function(row, index) {
 
       const searchableText =
-
         (
           row.model +
           " " +
@@ -2114,7 +2118,6 @@ function renderList() {
           "div"
         );
 
-
       item.className =
         "listItem";
 
@@ -2122,10 +2125,8 @@ function renderList() {
       item.onclick =
         function() {
 
-
           currentIndex =
             index;
-
 
           listMode =
             false;
@@ -2181,6 +2182,133 @@ function renderList() {
         };
 
 
+      // =================================================
+      // THUMBNAIL
+      // =================================================
+
+      const thumbnail =
+        document.createElement(
+          "div"
+        );
+
+      thumbnail.className =
+        "thumbnail";
+
+
+      if (
+        row.imageUrl
+      ) {
+
+        const img =
+          document.createElement(
+            "img"
+          );
+
+        img.loading =
+          "lazy";
+
+        img.src =
+          row.imageUrl;
+
+        img.alt =
+          row.imageCode ||
+          "";
+
+        thumbnail.appendChild(
+          img
+        );
+
+      }
+
+
+      // =================================================
+      // LIST INFORMATION
+      // =================================================
+
+      const info =
+        document.createElement(
+          "div"
+        );
+
+      info.className =
+        "listInfo";
+
+
+      info.innerHTML =
+
+        "<div>" +
+
+          "<span class='listNumber'>" +
+
+            (
+              index + 1
+            ) +
+
+          "</span> " +
+
+          "<span class='listModel'>" +
+
+            escapeHtml(
+              row.model
+            ) +
+
+          "</span>" +
+
+          "<span class='listQty'>" +
+
+            "Qty: " +
+
+            (
+              row.qty ||
+              1
+            ) +
+
+          "</span>" +
+
+        "</div>" +
+
+
+        "<div class='listDetails'>" +
+
+          "Rack: <b>" +
+
+          escapeHtml(
+            row.rack ||
+            "-"
+          ) +
+
+          "</b>" +
+
+          " &nbsp; | &nbsp; Image: <b>" +
+
+          escapeHtml(
+            row.imageCode ||
+            "-"
+          ) +
+
+          "</b>" +
+
+        "</div>";
+
+
+      item.appendChild(
+        thumbnail
+      );
+
+
+      item.appendChild(
+        info
+      );
+
+
+      list.appendChild(
+        item
+      );
+
+    }
+  );
+
+}
       // -----------------------------------------------
       // THUMBNAIL
       // -----------------------------------------------
