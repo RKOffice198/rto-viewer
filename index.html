@@ -20,33 +20,55 @@
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+
+  box-sizing:
+    border-box;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
 }
 
 
 html,
 body {
 
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
+  margin:
+    0;
+
+  padding:
+    0;
+
+  width:
+    100%;
+
+  min-height:
+    100%;
+
+  background:
+    #f1f3f5;
+
+  color:
+    #111827;
 
   font-family:
     Arial,
     Helvetica,
     sans-serif;
 
-  background: #f2f3f5;
-  color: #111827;
-
 }
 
 
 body {
-  overscroll-behavior: none;
+
+  overscroll-behavior:
+    none;
+
 }
 
 
@@ -56,121 +78,173 @@ body {
 
 .header {
 
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position:
+    sticky;
 
-  width: 100%;
+  top:
+    0;
 
-  background: #111827;
+  z-index:
+    1000;
 
-  color: white;
+  width:
+    100%;
+
+  background:
+    #111827;
+
+  color:
+    white;
 
   padding:
-    calc(7px + env(safe-area-inset-top))
-    8px
-    8px;
+    calc(
+      6px +
+      env(safe-area-inset-top)
+    )
+    7px
+    7px;
 
   box-shadow:
-    0 2px 8px rgba(0,0,0,.25);
+    0 2px 8px
+    rgba(
+      0,
+      0,
+      0,
+      .25
+    );
 
 }
 
 
 .headerRow {
 
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  width:
+    100%;
 
-  width: 100%;
-  min-height: 42px;
+  min-height:
+    40px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    5px;
 
 }
 
 
 .title {
 
-  flex: 1;
-  min-width: 0;
+  flex:
+    1;
 
-  font-size: 17px;
-  font-weight: 800;
+  min-width:
+    0;
 
-  white-space: nowrap;
+  font-size:
+    17px;
+
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+
+}
+
+
+.accountSelector {
+
+  width:
+    90px;
+
+  max-width:
+    105px;
+
+  height:
+    36px;
+
+  border:
+    0;
+
+  border-radius:
+    8px;
+
+  background:
+    white;
+
+  color:
+    #111827;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+  padding:
+    0 5px;
+
+  outline:
+    none;
 
 }
 
 
 .counter {
 
-  font-size: 13px;
-  font-weight: 800;
+  font-size:
+    12px;
 
-  white-space: nowrap;
+  font-weight:
+    800;
 
-}
-
-
-/* =====================================================
-   ACCOUNT SELECTOR
-===================================================== */
-
-.accountSelector {
-
-  height: 36px;
-
-  min-width: 82px;
-  max-width: 110px;
-
-  border: 0;
-
-  border-radius: 8px;
-
-  background: white;
-
-  color: #111827;
-
-  padding: 0 6px;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  outline: none;
+  white-space:
+    nowrap;
 
 }
 
-
-/* =====================================================
-   BUTTON
-===================================================== */
 
 .headerButton {
 
-  border: 0;
+  height:
+    36px;
 
-  background: #374151;
+  min-width:
+    38px;
 
-  color: white;
+  border:
+    0;
 
-  border-radius: 8px;
+  border-radius:
+    8px;
 
-  min-width: 40px;
+  background:
+    #374151;
 
-  height: 38px;
+  color:
+    white;
 
-  padding: 0 9px;
+  font-size:
+    13px;
 
-  font-size: 14px;
+  font-weight:
+    800;
 
-  font-weight: 800;
+  padding:
+    0 7px;
 
 }
 
 
 .headerButton:active {
-  transform: scale(.95);
+
+  transform:
+    scale(.94);
+
 }
 
 
@@ -180,55 +254,72 @@ body {
 
 .searchContainer {
 
-  display: none;
+  display:
+    none;
 
-  margin-top: 7px;
+  position:
+    relative;
 
-  position: relative;
+  margin-top:
+    6px;
 
 }
 
 
 .searchContainer.show {
-  display: block;
+
+  display:
+    block;
+
 }
 
 
 #search {
 
-  width: 100%;
+  width:
+    100%;
 
-  height: 42px;
+  height:
+    42px;
 
-  border: 0;
+  border:
+    0;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
+
+  outline:
+    none;
 
   padding:
     0 40px
     0 13px;
 
-  font-size: 16px;
+  background:
+    white;
 
-  outline: none;
-
-  background: white;
+  font-size:
+    16px;
 
 }
 
 
 .searchIcon {
 
-  position: absolute;
+  position:
+    absolute;
 
-  right: 13px;
-  top: 9px;
+  right:
+    13px;
 
-  color: #6b7280;
+  top:
+    10px;
 
-  font-size: 19px;
+  color:
+    #6b7280;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
 }
 
@@ -239,358 +330,23 @@ body {
 
 .container {
 
-  width: 100%;
+  width:
+    100%;
 
-  max-width: 600px;
+  max-width:
+    650px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
   padding:
-    8px 8px
+    8px;
+
+  padding-bottom:
     calc(
       10px +
       env(safe-area-inset-bottom)
     );
-
-}
-
-
-/* =====================================================
-   VIEWER
-===================================================== */
-
-.viewer {
-
-  width: 100%;
-
-  background: white;
-
-  border-radius: 12px;
-
-  padding: 7px;
-
-  box-shadow:
-    0 2px 9px
-    rgba(0,0,0,.12);
-
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.imageBox {
-
-  width: 100%;
-
-  height:
-    calc(100dvh - 245px);
-
-  min-height: 300px;
-
-  max-height: 720px;
-
-  background: #e5e7eb;
-
-  border-radius: 9px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  overflow: hidden;
-
-  touch-action: pan-y;
-
-}
-
-
-.imageBox img {
-
-  display: block;
-
-  max-width: 100%;
-  max-height: 100%;
-
-  width: auto;
-  height: auto;
-
-  object-fit: contain;
-
-  user-select: none;
-
-  -webkit-user-drag: none;
-
-}
-
-
-.noImage {
-
-  text-align: center;
-
-  color: #6b7280;
-
-  font-weight: 800;
-
-}
-
-
-.noImage small {
-
-  display: block;
-
-  margin-top: 6px;
-
-  font-weight: 400;
-
-}
-
-
-/* =====================================================
-   INFORMATION
-===================================================== */
-
-.info {
-
-  margin-top: 7px;
-
-  padding: 9px;
-
-  border:
-    1px solid #e5e7eb;
-
-  border-radius: 9px;
-
-}
-
-
-.model {
-
-  font-size: 18px;
-
-  line-height: 22px;
-
-  font-weight: 800;
-
-  word-break: break-word;
-
-}
-
-
-.qty {
-
-  margin-left: 5px;
-
-  color: #dc2626;
-
-  font-size: 16px;
-
-  font-weight: 800;
-
-}
-
-
-.infoRow {
-
-  display: flex;
-
-  gap: 7px;
-
-  margin-top: 5px;
-
-  font-size: 14px;
-
-  line-height: 19px;
-
-}
-
-
-.label {
-
-  color: #6b7280;
-
-  font-weight: 700;
-
-}
-
-
-.value {
-
-  font-weight: 800;
-
-  word-break: break-all;
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-.navigation {
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 7px;
-
-  margin-top: 7px;
-
-}
-
-
-.navigation button {
-
-  border: 0;
-
-  border-radius: 9px;
-
-  background: #111827;
-
-  color: white;
-
-  min-height: 46px;
-
-  font-size: 15px;
-
-  font-weight: 800;
-
-}
-
-
-.navigation button:disabled {
-  opacity: .3;
-}
-
-
-.navigation button:active {
-  transform: scale(.98);
-}
-
-
-.hint {
-
-  text-align: center;
-
-  color: #6b7280;
-
-  font-size: 11px;
-
-  margin-top: 5px;
-
-}
-
-
-/* =====================================================
-   LIST
-===================================================== */
-
-.list {
-  display: none;
-}
-
-
-.list.show {
-  display: block;
-}
-
-
-.listItem {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  background: white;
-
-  padding: 8px;
-
-  margin-bottom: 7px;
-
-  border-radius: 9px;
-
-  min-height: 78px;
-
-  box-shadow:
-    0 1px 5px
-    rgba(0,0,0,.10);
-
-  cursor: pointer;
-
-}
-
-
-.thumbnail {
-
-  width: 58px;
-  height: 68px;
-
-  flex:
-    0 0 58px;
-
-  border-radius: 7px;
-
-  background: #e5e7eb;
-
-  overflow: hidden;
-
-}
-
-
-.thumbnail img {
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: contain;
-
-}
-
-
-.listInfo {
-
-  min-width: 0;
-
-  flex: 1;
-
-}
-
-
-.listNumber {
-
-  color: #2563eb;
-
-  font-weight: 800;
-
-}
-
-
-.listModel {
-
-  font-size: 15px;
-
-  line-height: 19px;
-
-  font-weight: 800;
-
-  word-break: break-word;
-
-}
-
-
-.listDetails {
-
-  margin-top: 4px;
-
-  color: #4b5563;
-
-  font-size: 13px;
 
 }
 
@@ -601,51 +357,544 @@ body {
 
 .loading {
 
-  padding: 60px 20px;
+  width:
+    100%;
 
-  text-align: center;
+  padding:
+    60px 20px;
 
-  font-weight: 800;
+  text-align:
+    center;
+
+  font-size:
+    16px;
+
+  font-weight:
+    800;
 
 }
 
 
-.error {
-  color: #dc2626;
+.loading.error {
+
+  color:
+    #dc2626;
+
 }
 
 
 /* =====================================================
-   SMALL MOBILE
+   VIEWER
 ===================================================== */
 
-@media (max-width:420px) {
+.viewer {
+
+  width:
+    100%;
+
+  background:
+    white;
+
+  border-radius:
+    12px;
+
+  padding:
+    7px;
+
+  box-shadow:
+    0 2px 10px
+    rgba(
+      0,
+      0,
+      0,
+      .12
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.imageBox {
+
+  width:
+    100%;
+
+  height:
+    calc(
+      100dvh -
+      250px
+    );
+
+  min-height:
+    300px;
+
+  max-height:
+    750px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    9px;
+
+  background:
+    #e5e7eb;
+
+  touch-action:
+    pan-y;
+
+}
+
+
+.imageBox img {
+
+  display:
+    block;
+
+  max-width:
+    100%;
+
+  max-height:
+    100%;
+
+  width:
+    auto;
+
+  height:
+    auto;
+
+  object-fit:
+    contain;
+
+  user-select:
+    none;
+
+  -webkit-user-drag:
+    none;
+
+}
+
+
+.noImage {
+
+  text-align:
+    center;
+
+  color:
+    #6b7280;
+
+  font-weight:
+    800;
+
+}
+
+
+.noImage small {
+
+  display:
+    block;
+
+  margin-top:
+    6px;
+
+  font-weight:
+    400;
+
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.info {
+
+  margin-top:
+    7px;
+
+  padding:
+    9px;
+
+  border:
+    1px solid
+    #e5e7eb;
+
+  border-radius:
+    9px;
+
+}
+
+
+.model {
+
+  font-size:
+    18px;
+
+  line-height:
+    23px;
+
+  font-weight:
+    800;
+
+  word-break:
+    break-word;
+
+}
+
+
+.qty {
+
+  margin-left:
+    6px;
+
+  color:
+    #dc2626;
+
+  font-size:
+    15px;
+
+  font-weight:
+    800;
+
+}
+
+
+.infoRow {
+
+  display:
+    flex;
+
+  gap:
+    7px;
+
+  margin-top:
+    5px;
+
+  font-size:
+    14px;
+
+  line-height:
+    19px;
+
+}
+
+
+.label {
+
+  color:
+    #6b7280;
+
+  font-weight:
+    700;
+
+}
+
+
+.value {
+
+  flex:
+    1;
+
+  min-width:
+    0;
+
+  font-weight:
+    800;
+
+  word-break:
+    break-word;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    7px;
+
+  margin-top:
+    7px;
+
+}
+
+
+.navigation button {
+
+  min-height:
+    46px;
+
+  border:
+    0;
+
+  border-radius:
+    9px;
+
+  background:
+    #111827;
+
+  color:
+    white;
+
+  font-size:
+    14px;
+
+  font-weight:
+    800;
+
+}
+
+
+.navigation button:disabled {
+
+  opacity:
+    .3;
+
+}
+
+
+.navigation button:active {
+
+  transform:
+    scale(.98);
+
+}
+
+
+.hint {
+
+  margin-top:
+    5px;
+
+  text-align:
+    center;
+
+  color:
+    #6b7280;
+
+  font-size:
+    11px;
+
+}
+
+
+/* =====================================================
+   LIST
+===================================================== */
+
+.list {
+
+  display:
+    none;
+
+}
+
+
+.list.show {
+
+  display:
+    block;
+
+}
+
+
+.listItem {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+  width:
+    100%;
+
+  min-height:
+    76px;
+
+  margin-bottom:
+    7px;
+
+  padding:
+    8px;
+
+  border-radius:
+    9px;
+
+  background:
+    white;
+
+  box-shadow:
+    0 1px 5px
+    rgba(
+      0,
+      0,
+      0,
+      .10
+    );
+
+}
+
+
+.thumbnail {
+
+  flex:
+    0 0 58px;
+
+  width:
+    58px;
+
+  height:
+    68px;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    7px;
+
+  background:
+    #e5e7eb;
+
+}
+
+
+.thumbnail img {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    contain;
+
+}
+
+
+.listInfo {
+
+  flex:
+    1;
+
+  min-width:
+    0;
+
+}
+
+
+.listNumber {
+
+  color:
+    #2563eb;
+
+  font-weight:
+    800;
+
+}
+
+
+.listModel {
+
+  font-size:
+    15px;
+
+  line-height:
+    19px;
+
+  font-weight:
+    800;
+
+  word-break:
+    break-word;
+
+}
+
+
+.listDetails {
+
+  margin-top:
+    4px;
+
+  color:
+    #4b5563;
+
+  font-size:
+    13px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (
+  max-width: 420px
+) {
 
   .title {
-    font-size: 15px;
-  }
 
+    font-size:
+      15px;
 
-  .counter {
-    font-size: 12px;
   }
 
 
   .accountSelector {
 
-    min-width: 75px;
-    max-width: 90px;
+    width:
+      78px;
 
-    font-size: 12px;
+    max-width:
+      85px;
+
+    font-size:
+      11px;
+
+  }
+
+
+  .counter {
+
+    font-size:
+      11px;
 
   }
 
 
   .headerButton {
 
-    min-width: 38px;
+    min-width:
+      36px;
 
-    padding: 0 8px;
+    padding:
+      0 6px;
 
   }
 
@@ -653,49 +902,51 @@ body {
   .imageBox {
 
     height:
-      calc(100dvh - 230px);
+      calc(
+        100dvh -
+        235px
+      );
 
-    min-height: 300px;
+    min-height:
+      300px;
 
   }
 
 
   .model {
-    font-size: 17px;
+
+    font-size:
+      17px;
+
   }
 
 }
 
 
-/* =====================================================
-   VERY SMALL PHONE
-===================================================== */
-
-@media (max-width:350px) {
+@media (
+  max-width: 350px
+) {
 
   .title {
-    font-size: 14px;
+
+    font-size:
+      14px;
+
   }
 
 
   .accountSelector {
 
-    min-width: 68px;
-    max-width: 78px;
+    width:
+      68px;
 
   }
 
 
   .counter {
-    font-size: 11px;
-  }
 
-
-  .headerButton {
-
-    min-width: 35px;
-
-    padding: 0 6px;
+    display:
+      none;
 
   }
 
@@ -715,7 +966,6 @@ body {
 
 <div class="header">
 
-
   <div class="headerRow">
 
 
@@ -723,8 +973,6 @@ body {
       RTO Viewer
     </div>
 
-
-    <!-- ACCOUNT -->
 
     <select
       id="accountSelector"
@@ -739,8 +987,6 @@ body {
     </select>
 
 
-    <!-- COUNTER -->
-
     <div
       id="counter"
       class="counter"
@@ -748,8 +994,6 @@ body {
       0 / 0
     </div>
 
-
-    <!-- LIST -->
 
     <button
       id="listButton"
@@ -759,8 +1003,6 @@ body {
       List
     </button>
 
-
-    <!-- REFRESH -->
 
     <button
       class="headerButton"
@@ -772,8 +1014,6 @@ body {
 
   </div>
 
-
-  <!-- SEARCH -->
 
   <div
     id="searchContainer"
@@ -794,14 +1034,11 @@ body {
     >
 
 
-    <span
-      class="searchIcon"
-    >
+    <span class="searchIcon">
       🔍
     </span>
 
   </div>
-
 
 </div>
 
@@ -822,11 +1059,6 @@ body {
   </div>
 
 
-
-  <!-- =================================================
-       VIEWER
-  ================================================== -->
-
   <div
     id="viewer"
     class="viewer"
@@ -845,7 +1077,6 @@ body {
       >
 
     </div>
-
 
 
     <div class="info">
@@ -898,7 +1129,6 @@ body {
     </div>
 
 
-
     <div class="navigation">
 
 
@@ -929,11 +1159,6 @@ body {
   </div>
 
 
-
-  <!-- =================================================
-       LIST
-  ================================================== -->
-
   <div
     id="list"
     class="list"
@@ -948,7 +1173,14 @@ body {
 
 
 // =====================================================
-// APPS SCRIPT URL
+// APPS SCRIPT WEB APP URL
+// =====================================================
+//
+// IMPORTANT:
+// Keep your CURRENT /exec URL here.
+//
+// If you create a new deployment,
+// replace this URL with the new /exec URL.
 // =====================================================
 
 const API_URL =
@@ -961,13 +1193,17 @@ const API_URL =
 
 let rows = [];
 
-let currentIndex = 0;
+let currentIndex =
+  0;
 
-let listMode = false;
+let listMode =
+  false;
 
-let touchStartX = 0;
+let touchStartX =
+  0;
 
-let touchStartY = 0;
+let touchStartY =
+  0;
 
 
 // =====================================================
@@ -975,191 +1211,54 @@ let touchStartY = 0;
 // =====================================================
 
 function $(id) {
-  return document.getElementById(id);
+
+  return document.getElementById(
+    id
+  );
+
 }
 
 
 // =====================================================
-// LOAD ACCOUNT HEADERS
+// API CALL
 // =====================================================
 
-function loadAccounts() {
+function jsonp(
+  url,
+  callback
+) {
 
 
   const callbackName =
-    "accountCallback_" +
-    Date.now();
+    "jsonp_" +
+    Date.now() +
+    "_" +
+    Math.floor(
+      Math.random() *
+      100000
+    );
 
 
-  window[callbackName] =
+  window[
+    callbackName
+  ] =
     function(data) {
-
 
       try {
 
-
-        if (
-          !data ||
-          !data.success
-        ) {
-
-          showError(
-            data &&
-            data.error
-              ? data.error
-              : "Unable to load accounts."
-          );
-
-          return;
-
-        }
-
-
-        const selector =
-          $("accountSelector");
-
-
-        selector.innerHTML =
-          "";
-
-
-        if (
-          !data.accounts ||
-          !data.accounts.length
-        ) {
-
-          showError(
-            "No account headers found."
-          );
-
-          return;
-
-        }
-
-
-        // ------------------------------------------------
-        // ADD ACCOUNT HEADERS
-        // ------------------------------------------------
-
-        data.accounts.forEach(
-          function(account) {
-
-
-            const option =
-              document.createElement(
-                "option"
-              );
-
-
-            option.value =
-              account;
-
-
-            option.textContent =
-              account;
-
-
-            selector.appendChild(
-              option
-            );
-
-          }
+        callback(
+          data
         );
-
-
-        // ------------------------------------------------
-        // REMEMBER LAST ACCOUNT
-        // ------------------------------------------------
-
-        let saved =
-          null;
-
-
-        try {
-
-          saved =
-            localStorage.getItem(
-              "RTO_SELECTED_ACCOUNT"
-            );
-
-        } catch (error) {}
-
-
-        let selected =
-          "";
-
-
-        if (
-          saved &&
-          data.accounts.includes(
-            saved
-          )
-        ) {
-
-          selected =
-            saved;
-
-        }
-
-
-        // Prefer Meesho if
-        // no saved account
-
-        if (!selected) {
-
-          const meesho =
-            data.accounts.find(
-              function(name) {
-
-                return (
-                  name
-                    .toLowerCase() ===
-                  "meesho"
-                );
-
-              }
-            );
-
-
-          if (meesho) {
-
-            selected =
-              meesho;
-
-          }
-
-        }
-
-
-        // Otherwise first account
-
-        if (!selected) {
-
-          selected =
-            data.accounts[0];
-
-        }
-
-
-        selector.value =
-          selected;
-
-
-        loadData();
-
 
       }
 
       finally {
 
-
         delete window[
           callbackName
         ];
 
-
         if (
-          script &&
           script.parentNode
         ) {
 
@@ -1182,8 +1281,7 @@ function loadAccounts() {
 
 
   script.src =
-    API_URL +
-    "?action=accounts" +
+    url +
     "&callback=" +
     encodeURIComponent(
       callbackName
@@ -1194,6 +1292,23 @@ function loadAccounts() {
 
   script.onerror =
     function() {
+
+      delete window[
+        callbackName
+      ];
+
+
+      if (
+        script.parentNode
+      ) {
+
+        script.parentNode
+          .removeChild(
+            script
+          );
+
+      }
+
 
       showError(
         "Unable to connect to Google Apps Script."
@@ -1210,6 +1325,178 @@ function loadAccounts() {
 
 
 // =====================================================
+// LOAD ACCOUNTS
+// =====================================================
+
+function loadAccounts() {
+
+
+  jsonp(
+    API_URL +
+    "?action=accounts",
+    function(data) {
+
+
+      if (
+        !data ||
+        !data.success
+      ) {
+
+        showError(
+          data &&
+          data.error
+            ? data.error
+            : "Unable to load accounts."
+        );
+
+        return;
+
+      }
+
+
+      const selector =
+        $("accountSelector");
+
+
+      selector.innerHTML =
+        "";
+
+
+      if (
+        !data.accounts ||
+        !data.accounts.length
+      ) {
+
+        showError(
+          "No account headers found in RTO sheet."
+        );
+
+        return;
+
+      }
+
+
+      data.accounts.forEach(
+        function(
+          account
+        ) {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+
+          option.value =
+            account;
+
+
+          option.textContent =
+            account;
+
+
+          selector.appendChild(
+            option
+          );
+
+        }
+      );
+
+
+      // -----------------------------------------------
+      // REMEMBER LAST ACCOUNT
+      // -----------------------------------------------
+
+      let saved =
+        "";
+
+
+      try {
+
+        saved =
+          localStorage.getItem(
+            "RTO_SELECTED_ACCOUNT"
+          ) || "";
+
+      }
+
+      catch (error) {}
+
+
+      let selected =
+        "";
+
+
+      if (
+        saved &&
+        data.accounts.includes(
+          saved
+        )
+      ) {
+
+        selected =
+          saved;
+
+      }
+
+
+      // Prefer MEESHO
+
+      if (
+        !selected
+      ) {
+
+        const meesho =
+          data.accounts.find(
+            function(name) {
+
+              return (
+                name
+                  .toLowerCase() ===
+                "meesho"
+              );
+
+            }
+          );
+
+
+        if (
+          meesho
+        ) {
+
+          selected =
+            meesho;
+
+        }
+
+      }
+
+
+      // Otherwise first
+
+      if (
+        !selected
+      ) {
+
+        selected =
+          data.accounts[0];
+
+      }
+
+
+      selector.value =
+        selected;
+
+
+      loadData();
+
+    }
+  );
+
+}
+
+
+// =====================================================
 // CHANGE ACCOUNT
 // =====================================================
 
@@ -1220,8 +1507,12 @@ function changeAccount() {
     $("accountSelector").value;
 
 
-  if (!account) {
+  if (
+    !account
+  ) {
+
     return;
+
   }
 
 
@@ -1232,40 +1523,42 @@ function changeAccount() {
       account
     );
 
-  } catch (error) {}
+  }
+
+  catch (error) {}
 
 
   currentIndex =
     0;
 
 
-  if (listMode) {
-
-    listMode =
-      false;
+  listMode =
+    false;
 
 
-    $("list")
-      .classList
-      .remove("show");
+  $("viewer")
+    .style
+    .display =
+    "none";
 
 
-    $("searchContainer")
-      .classList
-      .remove("show");
+  $("list")
+    .classList
+    .remove(
+      "show"
+    );
 
 
-    $("viewer")
-      .style
-      .display =
-      "block";
+  $("searchContainer")
+    .classList
+    .remove(
+      "show"
+    );
 
 
-    $("listButton")
-      .textContent =
-      "List";
-
-  }
+  $("listButton")
+    .textContent =
+    "List";
 
 
   loadData();
@@ -1274,7 +1567,7 @@ function changeAccount() {
 
 
 // =====================================================
-// LOAD ACCOUNT DATA
+// LOAD DATA
 // =====================================================
 
 function loadData() {
@@ -1284,8 +1577,12 @@ function loadData() {
     $("accountSelector").value;
 
 
-  if (!account) {
+  if (
+    !account
+  ) {
+
     return;
+
   }
 
 
@@ -1297,7 +1594,9 @@ function loadData() {
 
   $("loading")
     .classList
-    .remove("error");
+    .remove(
+      "error"
+    );
 
 
   $("loading")
@@ -1313,138 +1612,77 @@ function loadData() {
     "none";
 
 
-  const callbackName =
-    "rtoCallback_" +
-    Date.now();
-
-
-  window[callbackName] =
-    function(data) {
-
-
-      try {
-
-
-        if (
-          !data ||
-          !data.success
-        ) {
-
-          showError(
-            data &&
-            data.error
-              ? data.error
-              : "Server error."
-          );
-
-          return;
-
-        }
-
-
-        rows =
-          data.rows || [];
-
-
-        currentIndex =
-          0;
-
-
-        $("loading")
-          .style
-          .display =
-          "none";
-
-
-        if (
-          rows.length
-        ) {
-
-          $("viewer")
-            .style
-            .display =
-            "block";
-
-          render();
-
-        }
-
-        else {
-
-          $("loading")
-            .style
-            .display =
-            "block";
-
-
-          $("loading")
-            .textContent =
-            "No RTO records found for " +
-            account;
-
-        }
-
-
-      }
-
-      finally {
-
-
-        delete window[
-          callbackName
-        ];
-
-
-        if (
-          script &&
-          script.parentNode
-        ) {
-
-          script.parentNode
-            .removeChild(
-              script
-            );
-
-        }
-
-      }
-
-    };
-
-
-  const script =
-    document.createElement(
-      "script"
-    );
-
-
-  script.src =
+  jsonp(
     API_URL +
     "?action=data" +
     "&account=" +
     encodeURIComponent(
       account
-    ) +
-    "&callback=" +
-    encodeURIComponent(
-      callbackName
-    ) +
-    "&t=" +
-    Date.now();
+    ),
+
+    function(data) {
 
 
-  script.onerror =
-    function() {
+      if (
+        !data ||
+        !data.success
+      ) {
 
-      showError(
-        "Unable to connect to Apps Script."
-      );
+        showError(
+          data &&
+          data.error
+            ? data.error
+            : "Unable to load RTO data."
+        );
 
-    };
+        return;
+
+      }
 
 
-  document.body.appendChild(
-    script
+      rows =
+        data.rows ||
+        [];
+
+
+      currentIndex =
+        0;
+
+
+      $("loading")
+        .style
+        .display =
+        "none";
+
+
+      if (
+        rows.length
+      ) {
+
+        $("viewer")
+          .style
+          .display =
+          "block";
+
+        render();
+
+      }
+
+      else {
+
+        $("loading")
+          .style
+          .display =
+          "block";
+
+        $("loading")
+          .textContent =
+          "No RTO records found for " +
+          account;
+
+      }
+
+    }
   );
 
 }
@@ -1454,7 +1692,9 @@ function loadData() {
 // ERROR
 // =====================================================
 
-function showError(message) {
+function showError(
+  message
+) {
 
 
   $("loading")
@@ -1465,37 +1705,46 @@ function showError(message) {
 
   $("loading")
     .classList
-    .add("error");
+    .add(
+      "error"
+    );
 
 
   $("loading")
-    .innerHTML =
+    .textContent =
     "Error: " +
-    escapeHtml(message);
+    message;
 
 }
 
 
 // =====================================================
-// RENDER
+// RENDER MAIN VIEW
 // =====================================================
 
 function render() {
 
 
-  if (!rows.length) {
+  if (
+    !rows.length
+  ) {
+
     return;
+
   }
 
 
   const row =
-    rows[currentIndex];
+    rows[
+      currentIndex
+    ];
 
 
   $("counter")
     .textContent =
     (
-      currentIndex + 1
+      currentIndex +
+      1
     ) +
     " / " +
     rows.length;
@@ -1503,25 +1752,29 @@ function render() {
 
   $("model")
     .textContent =
-    row.model || "";
+    row.model ||
+    "";
 
 
   $("qty")
     .textContent =
     "Qty: " +
     (
-      row.qty || 1
+      row.qty ||
+      1
     );
 
 
   $("rack")
     .textContent =
-    row.rack || "-";
+    row.rack ||
+    "-";
 
 
   $("imageCode")
     .textContent =
-    row.imageCode || "-";
+    row.imageCode ||
+    "-";
 
 
   const image =
@@ -1532,10 +1785,26 @@ function render() {
     $("imageBox");
 
 
+  // Remove old no-image message
+
+  const oldMessage =
+    imageBox.querySelector(
+      ".noImage"
+    );
+
+
+  if (
+    oldMessage
+  ) {
+
+    oldMessage.remove();
+
+  }
+
+
   if (
     row.imageUrl
   ) {
-
 
     image.style.display =
       "block";
@@ -1548,59 +1817,39 @@ function render() {
     image.alt =
       row.imageCode ||
       row.model ||
-      "Image";
-
-
-    const noImage =
-      imageBox.querySelector(
-        ".noImage"
-      );
-
-
-    if (noImage) {
-      noImage.remove();
-    }
+      "RTO Image";
 
   }
 
   else {
 
-
     image.style.display =
       "none";
 
 
-    if (
-      !imageBox.querySelector(
-        ".noImage"
-      )
-    ) {
-
-
-      const div =
-        document.createElement(
-          "div"
-        );
-
-
-      div.className =
-        "noImage";
-
-
-      div.innerHTML =
-        "Image not found" +
-        "<small>" +
-        escapeHtml(
-          row.imageCode || ""
-        ) +
-        "</small>";
-
-
-      imageBox.appendChild(
-        div
+    const message =
+      document.createElement(
+        "div"
       );
 
-    }
+
+    message.className =
+      "noImage";
+
+
+    message.innerHTML =
+      "Image not found" +
+      "<small>" +
+      escapeHtml(
+        row.imageCode ||
+        ""
+      ) +
+      "</small>";
+
+
+    imageBox.appendChild(
+      message
+    );
 
   }
 
@@ -1616,6 +1865,8 @@ function render() {
     rows.length - 1;
 
 
+  // Preload adjacent images
+
   preload(
     currentIndex - 1
   );
@@ -1625,19 +1876,16 @@ function render() {
     currentIndex + 1
   );
 
-
-  if (listMode) {
-    renderList();
-  }
-
 }
 
 
 // =====================================================
-// MOVE
+// NEXT / PREVIOUS
 // =====================================================
 
-function move(direction) {
+function move(
+  direction
+) {
 
 
   const newIndex =
@@ -1666,7 +1914,7 @@ function move(direction) {
 
 
 // =====================================================
-// LIST
+// LIST MODE
 // =====================================================
 
 function toggleList() {
@@ -1676,7 +1924,9 @@ function toggleList() {
     !listMode;
 
 
-  if (listMode) {
+  if (
+    listMode
+  ) {
 
 
     $("viewer")
@@ -1687,15 +1937,20 @@ function toggleList() {
 
     $("list")
       .classList
-      .add("show");
+      .add(
+        "show"
+      );
 
 
     $("searchContainer")
       .classList
-      .add("show");
+      .add(
+        "show"
+      );
 
 
-    // Keyboard does NOT open
+    // IMPORTANT:
+    // Keyboard does NOT open automatically.
 
     $("search")
       .readOnly =
@@ -1731,12 +1986,16 @@ function toggleList() {
 
     $("list")
       .classList
-      .remove("show");
+      .remove(
+        "show"
+      );
 
 
     $("searchContainer")
       .classList
-      .remove("show");
+      .remove(
+        "show"
+      );
 
 
     $("search")
@@ -1766,7 +2025,10 @@ function toggleList() {
 
 
 // =====================================================
-// SEARCH
+// SEARCH CLICK
+// =====================================================
+//
+// Keyboard opens ONLY when user actually taps search.
 // =====================================================
 
 function activateSearch() {
@@ -1775,9 +2037,6 @@ function activateSearch() {
   const search =
     $("search");
 
-
-  // Keyboard ONLY opens
-  // after user taps search
 
   search.readOnly =
     false;
@@ -1796,7 +2055,7 @@ function activateSearch() {
 
 
 // =====================================================
-// LIST RENDER
+// RENDER LIST
 // =====================================================
 
 function renderList() {
@@ -1818,10 +2077,13 @@ function renderList() {
 
 
   rows.forEach(
-    function(row, index) {
+    function(
+      row,
+      index
+    ) {
 
 
-      const text =
+      const searchableText =
 
         (
           row.model +
@@ -1837,7 +2099,7 @@ function renderList() {
 
       if (
         searchText &&
-        !text.includes(
+        !searchableText.includes(
           searchText
         )
       ) {
@@ -1877,12 +2139,16 @@ function renderList() {
 
           $("list")
             .classList
-            .remove("show");
+            .remove(
+              "show"
+            );
 
 
           $("searchContainer")
             .classList
-            .remove("show");
+            .remove(
+              "show"
+            );
 
 
           $("search")
@@ -1915,7 +2181,9 @@ function renderList() {
         };
 
 
-      // Thumbnail
+      // -----------------------------------------------
+      // THUMBNAIL
+      // -----------------------------------------------
 
       const thumbnail =
         document.createElement(
@@ -1930,7 +2198,6 @@ function renderList() {
       if (
         row.imageUrl
       ) {
-
 
         const img =
           document.createElement(
@@ -1953,7 +2220,9 @@ function renderList() {
       }
 
 
-      // Information
+      // -----------------------------------------------
+      // INFORMATION
+      // -----------------------------------------------
 
       const info =
         document.createElement(
@@ -1972,7 +2241,8 @@ function renderList() {
           "<span class='listNumber'>" +
 
             (
-              index + 1
+              index +
+              1
             ) +
 
           "</span> " +
@@ -1993,7 +2263,8 @@ function renderList() {
           "Rack: <b>" +
 
           escapeHtml(
-            row.rack || "-"
+            row.rack ||
+            "-"
           ) +
 
           "</b>" +
@@ -2001,7 +2272,8 @@ function renderList() {
           " &nbsp; | &nbsp; Image: <b>" +
 
           escapeHtml(
-            row.imageCode || "-"
+            row.imageCode ||
+            "-"
           ) +
 
           "</b>" +
@@ -2030,10 +2302,12 @@ function renderList() {
 
 
 // =====================================================
-// PRELOAD
+// PRELOAD IMAGE
 // =====================================================
 
-function preload(index) {
+function preload(
+  index
+) {
 
 
   if (
@@ -2056,11 +2330,11 @@ function preload(index) {
   }
 
 
-  const image =
+  const img =
     new Image();
 
 
-  image.src =
+  img.src =
     rows[index].imageUrl;
 
 }
@@ -2117,7 +2391,6 @@ $("imageBox")
     "touchstart",
     function(event) {
 
-
       const touch =
         event.changedTouches[0];
 
@@ -2131,7 +2404,8 @@ $("imageBox")
 
     },
     {
-      passive: true
+      passive:
+        true
     }
   );
 
@@ -2140,7 +2414,6 @@ $("imageBox")
   .addEventListener(
     "touchend",
     function(event) {
-
 
       const touch =
         event.changedTouches[0];
@@ -2162,7 +2435,6 @@ $("imageBox")
         Math.abs(dy)
       ) {
 
-
         if (
           dx < 0
         ) {
@@ -2181,7 +2453,8 @@ $("imageBox")
 
     },
     {
-      passive: true
+      passive:
+        true
     }
   );
 
@@ -2190,8 +2463,9 @@ $("imageBox")
 // ESCAPE HTML
 // =====================================================
 
-function escapeHtml(text) {
-
+function escapeHtml(
+  text
+) {
 
   return String(
     text || ""
@@ -2199,7 +2473,6 @@ function escapeHtml(text) {
   .replace(
     /[&<>"']/g,
     function(character) {
-
 
       return {
 
@@ -2218,7 +2491,9 @@ function escapeHtml(text) {
         "'":
           "&#39;"
 
-      }[character];
+      }[
+        character
+      ];
 
     }
   );
