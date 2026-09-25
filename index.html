@@ -2182,44 +2182,7 @@ function renderList() {
         };
 
 
-      // =================================================
-      // THUMBNAIL
-      // =================================================
-
-      const thumbnail =
-        document.createElement(
-          "div"
-        );
-
-      thumbnail.className =
-        "thumbnail";
-
-
-      if (
-        row.imageUrl
-      ) {
-
-        const img =
-          document.createElement(
-            "img"
-          );
-
-        img.loading =
-          "lazy";
-
-        img.src =
-          row.imageUrl;
-
-        img.alt =
-          row.imageCode ||
-          "";
-
-        thumbnail.appendChild(
-          img
-        );
-
-      }
-
+      
 
       // =================================================
       // LIST INFORMATION
