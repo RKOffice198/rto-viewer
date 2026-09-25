@@ -537,6 +537,34 @@ body {
 }
 
 
+.infoTop {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    8px;
+
+}
+
+
+.infoMain {
+
+  min-width:
+    0;
+
+  flex:
+    1;
+
+}
+
+
 .model {
 
   font-size:
@@ -550,6 +578,82 @@ body {
 
   word-break:
     break-word;
+
+}
+
+
+.seqBox {
+
+  flex:
+    0 0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    4px;
+
+  color:
+    #6b7280;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+}
+
+
+.seqInput {
+
+  width:
+    48px;
+
+  height:
+    30px;
+
+  padding:
+    0 5px;
+
+  border:
+    1px solid
+    #d1d5db;
+
+  border-radius:
+    7px;
+
+  background:
+    #f9fafb;
+
+  color:
+    #111827;
+
+  text-align:
+    center;
+
+  font-size:
+    15px;
+
+  font-weight:
+    800;
+
+  outline:
+    none;
+
+}
+
+
+.seqInput:focus {
+
+  border-color:
+    #111827;
+
+  background:
+    white;
 
 }
 
@@ -1095,18 +1199,42 @@ body {
     <div class="info">
 
 
-      <div>
+      <div class="infoTop">
 
-        <span
-          id="model"
-          class="model"
-        ></span>
+        <div class="infoMain">
+
+          <span
+            id="model"
+            class="model"
+          ></span>
 
 
-        <span
-          id="qty"
-          class="qty"
-        ></span>
+          <span
+            id="qty"
+            class="qty"
+          ></span>
+
+        </div>
+
+
+        <div class="seqBox">
+
+          <span>SEQ:</span>
+
+          <input
+            id="seqInput"
+            class="seqInput"
+            type="number"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            min="1"
+            readonly
+            autocomplete="off"
+            onclick="activateSeq()"
+            onkeydown="handleSeqKey(event)"
+          >
+
+        </div>
 
       </div>
 
@@ -1763,6 +1891,10 @@ function render() {
     rows.length;
 
 
+  $("seqInput").value =
+    currentIndex + 1;
+
+
   $("model")
     .textContent =
     row.model ||
@@ -1888,6 +2020,75 @@ function render() {
   preload(
     currentIndex + 1
   );
+
+}
+
+
+// =====================================================
+// SEQUENCE JUMP
+// =====================================================
+
+function activateSeq() {
+
+  const input =
+    $("seqInput");
+
+  input.readOnly =
+    false;
+
+  input.select();
+
+  setTimeout(
+    function() {
+      input.focus();
+    },
+    50
+  );
+
+}
+
+
+function handleSeqKey(event) {
+
+  if (event.key !== "Enter") {
+    return;
+  }
+
+  event.preventDefault();
+
+  const input =
+    $("seqInput");
+
+  const requested =
+    parseInt(input.value, 10);
+
+  if (
+    !Number.isInteger(requested) ||
+    requested < 1 ||
+    requested > rows.length
+  ) {
+
+    input.value =
+      currentIndex + 1;
+
+    input.readOnly =
+      true;
+
+    input.blur();
+
+    return;
+
+  }
+
+  currentIndex =
+    requested - 1;
+
+  input.readOnly =
+    true;
+
+  input.blur();
+
+  render();
 
 }
 
