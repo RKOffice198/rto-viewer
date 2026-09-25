@@ -20,17 +20,9 @@
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
-
   box-sizing: border-box;
-
-  -webkit-tap-highlight-color:
-    transparent;
-
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -38,11 +30,8 @@ html,
 body {
 
   margin: 0;
-
   padding: 0;
-
   width: 100%;
-
   min-height: 100%;
 
   font-family:
@@ -50,20 +39,14 @@ body {
     Helvetica,
     sans-serif;
 
-  background:
-    #f2f3f5;
-
-  color:
-    #111827;
+  background: #f2f3f5;
+  color: #111827;
 
 }
 
 
 body {
-
-  overscroll-behavior:
-    none;
-
+  overscroll-behavior: none;
 }
 
 
@@ -74,15 +57,12 @@ body {
 .header {
 
   position: sticky;
-
   top: 0;
-
   z-index: 100;
 
   width: 100%;
 
-  background:
-    #111827;
+  background: #111827;
 
   color: white;
 
@@ -92,8 +72,7 @@ body {
     8px;
 
   box-shadow:
-    0 2px 8px
-    rgba(0,0,0,.25);
+    0 2px 8px rgba(0,0,0,.25);
 
 }
 
@@ -101,13 +80,10 @@ body {
 .headerRow {
 
   display: flex;
-
   align-items: center;
-
   gap: 6px;
 
   width: 100%;
-
   min-height: 42px;
 
 }
@@ -116,11 +92,9 @@ body {
 .title {
 
   flex: 1;
-
   min-width: 0;
 
   font-size: 17px;
-
   font-weight: 800;
 
   white-space: nowrap;
@@ -131,7 +105,6 @@ body {
 .counter {
 
   font-size: 13px;
-
   font-weight: 800;
 
   white-space: nowrap;
@@ -140,29 +113,25 @@ body {
 
 
 /* =====================================================
-   SHEET SELECTOR
+   ACCOUNT SELECTOR
 ===================================================== */
 
-.sheetSelector {
+.accountSelector {
 
   height: 36px;
 
-  min-width: 80px;
-
-  max-width: 105px;
+  min-width: 82px;
+  max-width: 110px;
 
   border: 0;
 
   border-radius: 8px;
 
-  background:
-    white;
+  background: white;
 
-  color:
-    #111827;
+  color: #111827;
 
-  padding:
-    0 6px;
+  padding: 0 6px;
 
   font-size: 13px;
 
@@ -174,45 +143,34 @@ body {
 
 
 /* =====================================================
-   HEADER BUTTONS
+   BUTTON
 ===================================================== */
 
 .headerButton {
 
   border: 0;
 
-  background:
-    #374151;
+  background: #374151;
 
-  color:
-    white;
+  color: white;
 
-  border-radius:
-    8px;
+  border-radius: 8px;
 
-  min-width:
-    40px;
+  min-width: 40px;
 
-  height:
-    38px;
+  height: 38px;
 
-  padding:
-    0 9px;
+  padding: 0 9px;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
 }
 
 
 .headerButton:active {
-
-  transform:
-    scale(.95);
-
+  transform: scale(.95);
 }
 
 
@@ -222,96 +180,70 @@ body {
 
 .searchContainer {
 
-  display:
-    none;
+  display: none;
 
-  margin-top:
-    7px;
+  margin-top: 7px;
 
-  position:
-    relative;
+  position: relative;
 
 }
 
 
 .searchContainer.show {
-
-  display:
-    block;
-
+  display: block;
 }
 
 
 #search {
 
-  width:
-    100%;
+  width: 100%;
 
-  height:
-    42px;
+  height: 42px;
 
-  border:
-    0;
+  border: 0;
 
-  border-radius:
-    9px;
+  border-radius: 9px;
 
   padding:
     0 40px
     0 13px;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  outline:
-    none;
+  outline: none;
 
-  background:
-    white;
-
-  color:
-    #111827;
+  background: white;
 
 }
 
 
 .searchIcon {
 
-  position:
-    absolute;
+  position: absolute;
 
-  right:
-    13px;
+  right: 13px;
+  top: 9px;
 
-  top:
-    9px;
+  color: #6b7280;
 
-  color:
-    #6b7280;
+  font-size: 19px;
 
-  font-size:
-    19px;
-
-  pointer-events:
-    none;
+  pointer-events: none;
 
 }
 
 
 /* =====================================================
-   MAIN CONTAINER
+   MAIN
 ===================================================== */
 
 .container {
 
-  width:
-    100%;
+  width: 100%;
 
-  max-width:
-    600px;
+  max-width: 600px;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 
   padding:
     8px 8px
@@ -329,17 +261,13 @@ body {
 
 .viewer {
 
-  width:
-    100%;
+  width: 100%;
 
-  background:
-    white;
+  background: white;
 
-  border-radius:
-    12px;
+  border-radius: 12px;
 
-  padding:
-    7px;
+  padding: 7px;
 
   box-shadow:
     0 2px 9px
@@ -354,95 +282,69 @@ body {
 
 .imageBox {
 
-  width:
-    100%;
+  width: 100%;
 
   height:
     calc(100dvh - 245px);
 
-  min-height:
-    300px;
+  min-height: 300px;
 
-  max-height:
-    720px;
+  max-height: 720px;
 
-  background:
-    #e5e7eb;
+  background: #e5e7eb;
 
-  border-radius:
-    9px;
+  border-radius: 9px;
 
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  touch-action:
-    pan-y;
+  touch-action: pan-y;
 
 }
 
 
 .imageBox img {
 
-  display:
-    block;
+  display: block;
 
-  max-width:
-    100%;
+  max-width: 100%;
+  max-height: 100%;
 
-  max-height:
-    100%;
+  width: auto;
+  height: auto;
 
-  width:
-    auto;
+  object-fit: contain;
 
-  height:
-    auto;
+  user-select: none;
 
-  object-fit:
-    contain;
-
-  user-select:
-    none;
-
-  -webkit-user-drag:
-    none;
+  -webkit-user-drag: none;
 
 }
 
 
 .noImage {
 
-  text-align:
-    center;
+  text-align: center;
 
-  color:
-    #6b7280;
+  color: #6b7280;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
 }
 
 
 .noImage small {
 
-  display:
-    block;
+  display: block;
 
-  margin-top:
-    6px;
+  margin-top: 6px;
 
-  font-weight:
-    400;
+  font-weight: 400;
 
 }
 
@@ -453,96 +355,73 @@ body {
 
 .info {
 
-  margin-top:
-    7px;
+  margin-top: 7px;
 
-  padding:
-    9px;
+  padding: 9px;
 
   border:
     1px solid #e5e7eb;
 
-  border-radius:
-    9px;
-
-  background:
-    white;
+  border-radius: 9px;
 
 }
 
 
 .model {
 
-  font-size:
-    18px;
+  font-size: 18px;
 
-  line-height:
-    22px;
+  line-height: 22px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  word-break:
-    break-word;
+  word-break: break-word;
 
 }
 
 
 .qty {
 
-  margin-left:
-    5px;
+  margin-left: 5px;
 
-  color:
-    #dc2626;
+  color: #dc2626;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
 }
 
 
 .infoRow {
 
-  display:
-    flex;
+  display: flex;
 
-  gap:
-    7px;
+  gap: 7px;
 
-  margin-top:
-    5px;
+  margin-top: 5px;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  line-height:
-    19px;
+  line-height: 19px;
 
 }
 
 
 .label {
 
-  color:
-    #6b7280;
+  color: #6b7280;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
 }
 
 
 .value {
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  word-break:
-    break-all;
+  word-break: break-all;
 
 }
 
@@ -553,76 +432,55 @@ body {
 
 .navigation {
 
-  display:
-    grid;
+  display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
-  gap:
-    7px;
+  gap: 7px;
 
-  margin-top:
-    7px;
+  margin-top: 7px;
 
 }
 
 
 .navigation button {
 
-  border:
-    0;
+  border: 0;
 
-  border-radius:
-    9px;
+  border-radius: 9px;
 
-  background:
-    #111827;
+  background: #111827;
 
-  color:
-    white;
+  color: white;
 
-  min-height:
-    46px;
+  min-height: 46px;
 
-  font-size:
-    15px;
+  font-size: 15px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
 }
 
 
 .navigation button:disabled {
-
-  opacity:
-    .3;
-
+  opacity: .3;
 }
 
 
 .navigation button:active {
-
-  transform:
-    scale(.98);
-
+  transform: scale(.98);
 }
 
 
 .hint {
 
-  text-align:
-    center;
+  text-align: center;
 
-  color:
-    #6b7280;
+  color: #6b7280;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  margin-top:
-    5px;
+  margin-top: 5px;
 
 }
 
@@ -632,143 +490,107 @@ body {
 ===================================================== */
 
 .list {
-
-  display:
-    none;
-
+  display: none;
 }
 
 
 .list.show {
-
-  display:
-    block;
-
+  display: block;
 }
 
 
 .listItem {
 
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  gap:
-    9px;
+  gap: 9px;
 
-  background:
-    white;
+  background: white;
 
-  padding:
-    8px;
+  padding: 8px;
 
-  margin-bottom:
-    7px;
+  margin-bottom: 7px;
 
-  border-radius:
-    9px;
+  border-radius: 9px;
 
-  min-height:
-    78px;
+  min-height: 78px;
 
   box-shadow:
     0 1px 5px
     rgba(0,0,0,.10);
 
-  cursor:
-    pointer;
+  cursor: pointer;
 
 }
 
 
 .thumbnail {
 
-  width:
-    58px;
-
-  height:
-    68px;
+  width: 58px;
+  height: 68px;
 
   flex:
     0 0 58px;
 
-  border-radius:
-    7px;
+  border-radius: 7px;
 
-  background:
-    #e5e7eb;
+  background: #e5e7eb;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
 }
 
 
 .thumbnail img {
 
-  width:
-    100%;
+  width: 100%;
+  height: 100%;
 
-  height:
-    100%;
-
-  object-fit:
-    contain;
+  object-fit: contain;
 
 }
 
 
 .listInfo {
 
-  min-width:
-    0;
+  min-width: 0;
 
-  flex:
-    1;
+  flex: 1;
 
 }
 
 
 .listNumber {
 
-  color:
-    #2563eb;
+  color: #2563eb;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
 }
 
 
 .listModel {
 
-  font-size:
-    15px;
+  font-size: 15px;
 
-  line-height:
-    19px;
+  line-height: 19px;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  word-break:
-    break-word;
+  word-break: break-word;
 
 }
 
 
 .listDetails {
 
-  margin-top:
-    4px;
+  margin-top: 4px;
 
-  color:
-    #4b5563;
+  color: #4b5563;
 
-  font-size:
-    13px;
+  font-size: 13px;
 
 }
 
@@ -779,39 +601,17 @@ body {
 
 .loading {
 
-  padding:
-    60px 20px;
+  padding: 60px 20px;
 
-  text-align:
-    center;
+  text-align: center;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
 }
 
 
 .error {
-
-  color:
-    #dc2626;
-
-}
-
-
-/* =====================================================
-   DESKTOP
-===================================================== */
-
-@media (min-width:700px) {
-
-  .container {
-
-    max-width:
-      600px;
-
-  }
-
+  color: #dc2626;
 }
 
 
@@ -822,42 +622,30 @@ body {
 @media (max-width:420px) {
 
   .title {
-
-    font-size:
-      15px;
-
+    font-size: 15px;
   }
 
 
   .counter {
-
-    font-size:
-      12px;
-
+    font-size: 12px;
   }
 
 
-  .sheetSelector {
+  .accountSelector {
 
-    min-width:
-      75px;
+    min-width: 75px;
+    max-width: 90px;
 
-    max-width:
-      90px;
-
-    font-size:
-      12px;
+    font-size: 12px;
 
   }
 
 
   .headerButton {
 
-    min-width:
-      38px;
+    min-width: 38px;
 
-    padding:
-      0 8px;
+    padding: 0 8px;
 
   }
 
@@ -867,62 +655,47 @@ body {
     height:
       calc(100dvh - 230px);
 
-    min-height:
-      300px;
+    min-height: 300px;
 
   }
 
 
   .model {
-
-    font-size:
-      17px;
-
+    font-size: 17px;
   }
 
 }
 
 
 /* =====================================================
-   VERY SMALL MOBILE
+   VERY SMALL PHONE
 ===================================================== */
 
 @media (max-width:350px) {
 
   .title {
-
-    font-size:
-      14px;
-
+    font-size: 14px;
   }
 
 
-  .sheetSelector {
+  .accountSelector {
 
-    min-width:
-      68px;
-
-    max-width:
-      78px;
+    min-width: 68px;
+    max-width: 78px;
 
   }
 
 
   .counter {
-
-    font-size:
-      11px;
-
+    font-size: 11px;
   }
 
 
   .headerButton {
 
-    min-width:
-      35px;
+    min-width: 35px;
 
-    padding:
-      0 6px;
+    padding: 0 6px;
 
   }
 
@@ -947,18 +720,16 @@ body {
 
 
     <div class="title">
-
       RTO Viewer
-
     </div>
 
 
-    <!-- SHEET SELECTOR -->
+    <!-- ACCOUNT -->
 
     <select
-      id="sheetSelector"
-      class="sheetSelector"
-      onchange="changeSheet()"
+      id="accountSelector"
+      class="accountSelector"
+      onchange="changeAccount()"
     >
 
       <option value="">
@@ -974,22 +745,18 @@ body {
       id="counter"
       class="counter"
     >
-
       0 / 0
-
     </div>
 
 
-    <!-- LIST BUTTON -->
+    <!-- LIST -->
 
     <button
       id="listButton"
       class="headerButton"
       onclick="toggleList()"
     >
-
       List
-
     </button>
 
 
@@ -999,9 +766,7 @@ body {
       class="headerButton"
       onclick="loadData()"
     >
-
       ↻
-
     </button>
 
 
@@ -1032,11 +797,8 @@ body {
     <span
       class="searchIcon"
     >
-
       🔍
-
     </span>
-
 
   </div>
 
@@ -1046,21 +808,17 @@ body {
 
 
 <!-- ===================================================
-     MAIN
+     CONTENT
 =================================================== -->
 
 <div class="container">
 
 
-  <!-- LOADING -->
-
   <div
     id="loading"
     class="loading"
   >
-
     Loading...
-
   </div>
 
 
@@ -1076,8 +834,6 @@ body {
   >
 
 
-    <!-- IMAGE -->
-
     <div
       id="imageBox"
       class="imageBox"
@@ -1091,8 +847,6 @@ body {
     </div>
 
 
-
-    <!-- INFORMATION -->
 
     <div class="info">
 
@@ -1116,11 +870,8 @@ body {
       <div class="infoRow">
 
         <span class="label">
-
           Rack:
-
         </span>
-
 
         <span
           id="rack"
@@ -1133,11 +884,8 @@ body {
       <div class="infoRow">
 
         <span class="label">
-
           Image:
-
         </span>
-
 
         <span
           id="imageCode"
@@ -1151,8 +899,6 @@ body {
 
 
 
-    <!-- NAVIGATION -->
-
     <div class="navigation">
 
 
@@ -1160,9 +906,7 @@ body {
         id="previous"
         onclick="move(-1)"
       >
-
         ← Previous
-
       </button>
 
 
@@ -1170,9 +914,7 @@ body {
         id="next"
         onclick="move(1)"
       >
-
         Next →
-
       </button>
 
 
@@ -1180,9 +922,7 @@ body {
 
 
     <div class="hint">
-
       Swipe left / right
-
     </div>
 
 
@@ -1210,10 +950,6 @@ body {
 // =====================================================
 // APPS SCRIPT URL
 // =====================================================
-//
-// IMPORTANT:
-// Put your deployed Apps Script URL here.
-// =====================================================
 
 const API_URL =
   "https://script.google.com/macros/s/AKfycbwjVrkB6YYbmmyOwsM2u3HdlUgOaUZAREz-QxqRCTDUnMXAgkLfu5TKkEsdbJVPCCc7MA/exec";
@@ -1235,25 +971,23 @@ let touchStartY = 0;
 
 
 // =====================================================
-// ELEMENT SHORTCUT
+// SHORTCUT
 // =====================================================
 
 function $(id) {
-
   return document.getElementById(id);
-
 }
 
 
 // =====================================================
-// LOAD SHEETS
+// LOAD ACCOUNT HEADERS
 // =====================================================
 
-function loadSheets() {
+function loadAccounts() {
 
 
   const callbackName =
-    "sheetCallback_" +
+    "accountCallback_" +
     Date.now();
 
 
@@ -1273,7 +1007,7 @@ function loadSheets() {
             data &&
             data.error
               ? data.error
-              : "Unable to load sheets"
+              : "Unable to load accounts."
           );
 
           return;
@@ -1282,7 +1016,7 @@ function loadSheets() {
 
 
         const selector =
-          $("sheetSelector");
+          $("accountSelector");
 
 
         selector.innerHTML =
@@ -1290,12 +1024,12 @@ function loadSheets() {
 
 
         if (
-          !data.sheets ||
-          !data.sheets.length
+          !data.accounts ||
+          !data.accounts.length
         ) {
 
           showError(
-            "No Google Sheets found."
+            "No account headers found."
           );
 
           return;
@@ -1303,12 +1037,12 @@ function loadSheets() {
         }
 
 
-        // ---------------------------------------------
-        // ADD ALL SHEETS
-        // ---------------------------------------------
+        // ------------------------------------------------
+        // ADD ACCOUNT HEADERS
+        // ------------------------------------------------
 
-        data.sheets.forEach(
-          function(sheetName) {
+        data.accounts.forEach(
+          function(account) {
 
 
             const option =
@@ -1318,11 +1052,11 @@ function loadSheets() {
 
 
             option.value =
-              sheetName;
+              account;
 
 
             option.textContent =
-              sheetName;
+              account;
 
 
             selector.appendChild(
@@ -1333,52 +1067,48 @@ function loadSheets() {
         );
 
 
-        // ---------------------------------------------
-        // REMEMBER LAST SHEET
-        // ---------------------------------------------
+        // ------------------------------------------------
+        // REMEMBER LAST ACCOUNT
+        // ------------------------------------------------
 
-        let savedSheet = null;
+        let saved =
+          null;
 
 
         try {
 
-          savedSheet =
+          saved =
             localStorage.getItem(
-              "RTO_SELECTED_SHEET"
+              "RTO_SELECTED_ACCOUNT"
             );
 
-        } catch (error) {
-
-          savedSheet = null;
-
-        }
+        } catch (error) {}
 
 
-        let selectedSheet =
+        let selected =
           "";
 
 
-        // First try saved sheet
         if (
-          savedSheet &&
-          data.sheets.includes(
-            savedSheet
+          saved &&
+          data.accounts.includes(
+            saved
           )
         ) {
 
-          selectedSheet =
-            savedSheet;
+          selected =
+            saved;
 
         }
 
 
-        // Otherwise prefer Meesho
-        if (
-          !selectedSheet
-        ) {
+        // Prefer Meesho if
+        // no saved account
+
+        if (!selected) {
 
           const meesho =
-            data.sheets.find(
+            data.accounts.find(
               function(name) {
 
                 return (
@@ -1393,7 +1123,7 @@ function loadSheets() {
 
           if (meesho) {
 
-            selectedSheet =
+            selected =
               meesho;
 
           }
@@ -1401,19 +1131,18 @@ function loadSheets() {
         }
 
 
-        // Otherwise first sheet
-        if (
-          !selectedSheet
-        ) {
+        // Otherwise first account
 
-          selectedSheet =
-            data.sheets[0];
+        if (!selected) {
+
+          selected =
+            data.accounts[0];
 
         }
 
 
         selector.value =
-          selectedSheet;
+          selected;
 
 
         loadData();
@@ -1454,7 +1183,7 @@ function loadSheets() {
 
   script.src =
     API_URL +
-    "?action=sheets" +
+    "?action=accounts" +
     "&callback=" +
     encodeURIComponent(
       callbackName
@@ -1473,43 +1202,34 @@ function loadSheets() {
     };
 
 
-  document
-    .body
-    .appendChild(
-      script
-    );
+  document.body.appendChild(
+    script
+  );
 
 }
 
 
 // =====================================================
-// CHANGE SHEET
+// CHANGE ACCOUNT
 // =====================================================
 
-function changeSheet() {
+function changeAccount() {
 
 
-  const selector =
-    $("sheetSelector");
+  const account =
+    $("accountSelector").value;
 
 
-  const selected =
-    selector.value;
-
-
-  if (!selected) {
-
+  if (!account) {
     return;
-
   }
 
 
-  // Save selection
   try {
 
     localStorage.setItem(
-      "RTO_SELECTED_SHEET",
-      selected
+      "RTO_SELECTED_ACCOUNT",
+      account
     );
 
   } catch (error) {}
@@ -1518,9 +1238,6 @@ function changeSheet() {
   currentIndex =
     0;
 
-
-  // If currently in list,
-  // close list and return viewer.
 
   if (listMode) {
 
@@ -1539,7 +1256,8 @@ function changeSheet() {
 
 
     $("viewer")
-      .style.display =
+      .style
+      .display =
       "block";
 
 
@@ -1556,45 +1274,24 @@ function changeSheet() {
 
 
 // =====================================================
-// LOAD DATA
+// LOAD ACCOUNT DATA
 // =====================================================
 
 function loadData() {
 
 
-  const selector =
-    $("sheetSelector");
+  const account =
+    $("accountSelector").value;
 
 
-  const sheet =
-    selector.value;
-
-
-  if (
-    !API_URL ||
-    API_URL.includes(
-      "PASTE_YOUR"
-    )
-  ) {
-
-    showError(
-      "Please enter your Apps Script URL."
-    );
-
+  if (!account) {
     return;
-
-  }
-
-
-  if (!sheet) {
-
-    return;
-
   }
 
 
   $("loading")
-    .style.display =
+    .style
+    .display =
     "block";
 
 
@@ -1606,12 +1303,13 @@ function loadData() {
   $("loading")
     .textContent =
     "Loading " +
-    sheet +
+    account +
     "...";
 
 
   $("viewer")
-    .style.display =
+    .style
+    .display =
     "none";
 
 
@@ -1636,7 +1334,7 @@ function loadData() {
             data &&
             data.error
               ? data.error
-              : "Server error"
+              : "Server error."
           );
 
           return;
@@ -1653,37 +1351,38 @@ function loadData() {
 
 
         $("loading")
-          .style.display =
+          .style
+          .display =
           "none";
 
 
-        $("viewer")
-          .style.display =
-          rows.length
-            ? "block"
-            : "none";
-
-
         if (
-          !rows.length
+          rows.length
         ) {
 
+          $("viewer")
+            .style
+            .display =
+            "block";
+
+          render();
+
+        }
+
+        else {
+
           $("loading")
-            .style.display =
+            .style
+            .display =
             "block";
 
 
           $("loading")
             .textContent =
-            "No RTO records found in " +
-            sheet;
-
-          return;
+            "No RTO records found for " +
+            account;
 
         }
-
-
-        render();
 
 
       }
@@ -1722,9 +1421,9 @@ function loadData() {
   script.src =
     API_URL +
     "?action=data" +
-    "&sheet=" +
+    "&account=" +
     encodeURIComponent(
-      sheet
+      account
     ) +
     "&callback=" +
     encodeURIComponent(
@@ -1744,11 +1443,9 @@ function loadData() {
     };
 
 
-  document
-    .body
-    .appendChild(
-      script
-    );
+  document.body.appendChild(
+    script
+  );
 
 }
 
@@ -1757,13 +1454,12 @@ function loadData() {
 // ERROR
 // =====================================================
 
-function showError(
-  message
-) {
+function showError(message) {
 
 
   $("loading")
-    .style.display =
+    .style
+    .display =
     "block";
 
 
@@ -1775,37 +1471,25 @@ function showError(
   $("loading")
     .innerHTML =
     "Error: " +
-    escapeHtml(
-      message
-    );
+    escapeHtml(message);
 
 }
 
 
 // =====================================================
-// RENDER MAIN VIEW
+// RENDER
 // =====================================================
 
 function render() {
 
 
-  if (
-    !rows.length
-  ) {
-
-    $("counter")
-      .textContent =
-      "0 / 0";
-
+  if (!rows.length) {
     return;
-
   }
 
 
   const row =
-    rows[
-      currentIndex
-    ];
+    rows[currentIndex];
 
 
   $("counter")
@@ -1848,10 +1532,6 @@ function render() {
     $("imageBox");
 
 
-  // -------------------------------------------------
-  // IMAGE FOUND
-  // -------------------------------------------------
-
   if (
     row.imageUrl
   ) {
@@ -1878,17 +1558,10 @@ function render() {
 
 
     if (noImage) {
-
       noImage.remove();
-
     }
 
   }
-
-
-  // -------------------------------------------------
-  // IMAGE NOT FOUND
-  // -------------------------------------------------
 
   else {
 
@@ -1918,8 +1591,7 @@ function render() {
         "Image not found" +
         "<small>" +
         escapeHtml(
-          row.imageCode ||
-          ""
+          row.imageCode || ""
         ) +
         "</small>";
 
@@ -1944,36 +1616,28 @@ function render() {
     rows.length - 1;
 
 
-  // Preload previous
   preload(
     currentIndex - 1
   );
 
 
-  // Preload next
   preload(
     currentIndex + 1
   );
 
 
-  if (
-    listMode
-  ) {
-
+  if (listMode) {
     renderList();
-
   }
 
 }
 
 
 // =====================================================
-// PREVIOUS / NEXT
+// MOVE
 // =====================================================
 
-function move(
-  direction
-) {
+function move(direction) {
 
 
   const newIndex =
@@ -2002,7 +1666,7 @@ function move(
 
 
 // =====================================================
-// LIST VIEW
+// LIST
 // =====================================================
 
 function toggleList() {
@@ -2012,13 +1676,12 @@ function toggleList() {
     !listMode;
 
 
-  if (
-    listMode
-  ) {
+  if (listMode) {
 
 
     $("viewer")
-      .style.display =
+      .style
+      .display =
       "none";
 
 
@@ -2032,8 +1695,7 @@ function toggleList() {
       .add("show");
 
 
-    // IMPORTANT:
-    // Do not open keyboard automatically.
+    // Keyboard does NOT open
 
     $("search")
       .readOnly =
@@ -2058,12 +1720,12 @@ function toggleList() {
 
   }
 
-
   else {
 
 
     $("viewer")
-      .style.display =
+      .style
+      .display =
       "block";
 
 
@@ -2114,11 +1776,8 @@ function activateSearch() {
     $("search");
 
 
-  /*
-     Keyboard opens ONLY
-     after tapping Search.
-  */
-
+  // Keyboard ONLY opens
+  // after user taps search
 
   search.readOnly =
     false;
@@ -2137,7 +1796,7 @@ function activateSearch() {
 
 
 // =====================================================
-// RENDER LIST
+// LIST RENDER
 // =====================================================
 
 function renderList() {
@@ -2159,13 +1818,10 @@ function renderList() {
 
 
   rows.forEach(
-    function(
-      row,
-      index
-    ) {
+    function(row, index) {
 
 
-      const searchableText =
+      const text =
 
         (
           row.model +
@@ -2181,7 +1837,7 @@ function renderList() {
 
       if (
         searchText &&
-        !searchableText.includes(
+        !text.includes(
           searchText
         )
       ) {
@@ -2214,7 +1870,8 @@ function renderList() {
 
 
           $("viewer")
-            .style.display =
+            .style
+            .display =
             "block";
 
 
@@ -2258,9 +1915,7 @@ function renderList() {
         };
 
 
-      // ------------------------------------------------
-      // THUMBNAIL
-      // ------------------------------------------------
+      // Thumbnail
 
       const thumbnail =
         document.createElement(
@@ -2291,11 +1946,6 @@ function renderList() {
           row.imageUrl;
 
 
-        img.alt =
-          row.imageCode ||
-          "";
-
-
         thumbnail.appendChild(
           img
         );
@@ -2303,9 +1953,7 @@ function renderList() {
       }
 
 
-      // ------------------------------------------------
-      // INFO
-      // ------------------------------------------------
+      // Information
 
       const info =
         document.createElement(
@@ -2345,8 +1993,7 @@ function renderList() {
           "Rack: <b>" +
 
           escapeHtml(
-            row.rack ||
-            "-"
+            row.rack || "-"
           ) +
 
           "</b>" +
@@ -2354,8 +2001,7 @@ function renderList() {
           " &nbsp; | &nbsp; Image: <b>" +
 
           escapeHtml(
-            row.imageCode ||
-            "-"
+            row.imageCode || "-"
           ) +
 
           "</b>" +
@@ -2384,12 +2030,10 @@ function renderList() {
 
 
 // =====================================================
-// PRELOAD IMAGE
+// PRELOAD
 // =====================================================
 
-function preload(
-  index
-) {
+function preload(index) {
 
 
   if (
@@ -2412,26 +2056,24 @@ function preload(
   }
 
 
-  const img =
+  const image =
     new Image();
 
 
-  img.src =
+  image.src =
     rows[index].imageUrl;
 
 }
 
 
 // =====================================================
-// KEYBOARD ARROWS
+// KEYBOARD
 // =====================================================
 
 document.addEventListener(
   "keydown",
   function(event) {
 
-
-    // Don't navigate while searching
 
     if (
       document.activeElement ===
@@ -2467,7 +2109,7 @@ document.addEventListener(
 
 
 // =====================================================
-// MOBILE SWIPE
+// SWIPE
 // =====================================================
 
 $("imageBox")
@@ -2548,9 +2190,7 @@ $("imageBox")
 // ESCAPE HTML
 // =====================================================
 
-function escapeHtml(
-  text
-) {
+function escapeHtml(text) {
 
 
   return String(
@@ -2590,7 +2230,7 @@ function escapeHtml(
 // START
 // =====================================================
 
-loadSheets();
+loadAccounts();
 
 </script>
 
